@@ -6,15 +6,16 @@ public class StickOnCollide : MonoBehaviour
 
     void Start()
     {
-        rigid = GetComponent<Rigidbody>();
+        rigid = transform.GetComponent<Rigidbody>();
     }
 
     private void OnCollisionEnter(Collision other)
     {
-        if (!rigid.isKinematic)
+        if (rigid != null && !rigid.isKinematic)
         {
-            transform.SetParent(other.transform);
+            transform.SetParent(other.transform, true);
             rigid.isKinematic = true;
+            rigid.useGravity = false;
         }
     }
 }

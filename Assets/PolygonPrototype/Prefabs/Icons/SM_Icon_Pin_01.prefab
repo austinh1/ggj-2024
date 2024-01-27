@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 23217187821262034}
   - component: {fileID: 3008155774957797047}
   - component: {fileID: 2152622121387792372}
-  - component: {fileID: 1449187181044525246}
+  - component: {fileID: 5288617907097342736}
   m_Layer: 0
   m_Name: SM_Icon_Pin_01
   m_TagString: Untagged
@@ -136,7 +136,7 @@ CapsuleCollider:
   m_Height: 0.5852463
   m_Direction: 1
   m_Center: {x: 0, y: 0.02, z: 0}
---- !u!114 &1449187181044525246
+--- !u!114 &5288617907097342736
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
