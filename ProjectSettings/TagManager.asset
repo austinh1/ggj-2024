@@ -7,6 +7,8 @@ TagManager:
   - Ground
   - UI
   - Hole
+  - Food
+  - Sticky
   layers:
   - Default
   - TransparentFX

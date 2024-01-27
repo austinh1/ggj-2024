@@ -23,7 +23,7 @@ public class GolfBallController : MonoBehaviour
     private GameObject UI;
     private int strokes = 0;
 
-    private bool lerpToHole = false;
+    private bool isBige = false;
 
     void Start()
     {
@@ -32,11 +32,6 @@ public class GolfBallController : MonoBehaviour
 
     void Update()
     {
-        if (lerpToHole)
-        {
-            return;
-        }
-
         var grounded = Physics.Raycast(transform.position, Vector3.down, groundRaycastDistance);
         if (Input.GetMouseButtonDown(0))
         {
@@ -68,11 +63,6 @@ public class GolfBallController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (lerpToHole)
-        {
-            transform.position = Vector3.Lerp(transform.position, hole.position, .9f * Time.fixedDeltaTime);
-        }
-
         if (prepSwing)
         {
             swingStrength = Math.Clamp(swingStrength + swingRate * strengthBarDir, 0f, 1f);
@@ -81,6 +71,15 @@ public class GolfBallController : MonoBehaviour
                 strengthBarDir = -strengthBarDir;
             }
         }
+
+        if (isBige)
+        {
+            transform.localScale = Vector3.Lerp(transform.localScale, Vector3.one * 2f, 2f * Time.fixedDeltaTime);
+        }
+        // else
+        // {
+        //     transform.localScale = Vector3.Lerp(transform.localScale, Vector3.one, Time.fixedDeltaTime);
+        // }
 
         TickTimers();
     }
@@ -107,11 +106,38 @@ public class GolfBallController : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
-        if (other.gameObject.CompareTag("Hole"))
+        switch (other.gameObject.tag)
         {
-            collider.enabled = false;
-            body.isKinematic = true;
-            lerpToHole = true;
+            case "Sticky":
+                body.drag = 2f;
+                body.angularDrag = 30;
+                break;
+        }
+    }
+    
+    private void OnCollisionExit(Collision other)
+    {
+        switch (other.gameObject.tag)
+        {
+            case "Sticky":
+                body.drag = .1f;
+                body.angularDrag = .1f;
+                break;
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        switch (other.gameObject.tag)
+        {
+            case "Hole":
+                body.AddForce(Vector3.up * 10f, ForceMode.Impulse);
+                break;
+            case "Food":
+                isBige = true;
+                body.mass *= 1.25f;
+                Destroy(other.gameObject);
+                break;
         }
     }
 }
