@@ -7,8 +7,6 @@ public class GolfBallController : MonoBehaviour
     public GameObject anchor;
     public float upwardVelocity = .25f;
     public float forwardVelocity = 8f;
-    public float leftRotateSpeed = -1f;
-    public float rightRotateSpeed = 1f;
     [Range(0.001f, 0.01f)]
     public float swingRate = 0.001f;
 
@@ -50,16 +48,6 @@ public class GolfBallController : MonoBehaviour
                     strengthBarDir = -strengthBarDir;
                 }
             }
-        }
-
-        if (Input.GetKey(KeyCode.A))
-        {
-            anchor.transform.eulerAngles += new Vector3(0, leftRotateSpeed, 0);
-        }
-        
-        if (Input.GetKey(KeyCode.D))
-        {
-            anchor.transform.eulerAngles += new Vector3(0, rightRotateSpeed, 0);
         } 
     }
 
