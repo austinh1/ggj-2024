@@ -11,6 +11,8 @@ public class ButtonController : MonoBehaviour
     public int spawnBatchSize = 1;
     [Range(1, 1000)]
     public int spawnBatchCount = 100;
+    [Range(0f, 600f)]
+    public float despawnTime = 10f;
 
     private Transform button;
     private Vector3 pressedPos;
@@ -50,7 +52,7 @@ public class ButtonController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (!pressed)
+        if (!pressed || spawnBatchCount <= 0)
         {
             return;
         }
@@ -87,6 +89,9 @@ public class ButtonController : MonoBehaviour
         var spawnX = Random.Range(spawnMinX, spawnMaxX);
         var spawnZ = Random.Range(spawnMinZ, spawnMaxZ);
         var spawnPos = new Vector3(spawnX, spawnPlane.transform.position.y, spawnZ);
-        Instantiate(spawnObject, spawnPos, Quaternion.identity);
+
+        var newObject = Instantiate(spawnObject, spawnPos, Quaternion.identity);
+        var timerScript = newObject.AddComponent<DespawnTimer>();
+        timerScript.timeSeconds = despawnTime;
     }
 }
