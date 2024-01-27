@@ -101,7 +101,7 @@ public class GolfBallController : MonoBehaviour
     {
         var missText = UI.transform.Find("Miss");
         missText.gameObject.SetActive(true);
-        missTimer = 300;
+        missTimer = 45;
     }
 
     private void OnCollisionEnter(Collision other)
