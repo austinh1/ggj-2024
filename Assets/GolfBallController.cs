@@ -24,7 +24,7 @@ public class GolfBallController : MonoBehaviour
     private int strokes = 0;
 
     private bool lerpToHole = false;
-    
+
     void Start()
     {
         UI = GameObject.FindWithTag("UI");
@@ -36,7 +36,7 @@ public class GolfBallController : MonoBehaviour
         {
             return;
         }
-        
+
         var grounded = Physics.Raycast(transform.position, Vector3.down, groundRaycastDistance);
         if (Input.GetMouseButtonDown(0))
         {
