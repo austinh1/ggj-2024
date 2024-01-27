@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 public class Car : MonoBehaviour
@@ -12,12 +11,14 @@ public class Car : MonoBehaviour
     {
         forward = transform.forward;
     }
-
+    
     private void Update()
     {
         if (truckin)
         {
-            body.AddForce(forward * 100f);
+            body.AddForce(forward * 50f);
+            var vel = Mathf.Min(body.velocity.magnitude, 100f);
+            body.velocity = body.velocity.normalized * vel;
 
             if (transform.position.magnitude > 1000)
             {
