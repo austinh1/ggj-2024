@@ -1070,14 +1070,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1504831126699314149, guid: b3455b4bf53b81341aa16bc91c63f5a5, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1530066622642625067, guid: b3455b4bf53b81341aa16bc91c63f5a5, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2505508704861151284, guid: b3455b4bf53b81341aa16bc91c63f5a5, type: 3}
       propertyPath: ballController
       value: 
