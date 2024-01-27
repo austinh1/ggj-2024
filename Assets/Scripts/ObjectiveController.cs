@@ -1,9 +1,10 @@
 using System;
+using System.Linq;
 using UnityEngine;
 
 public class ObjectiveController : MonoBehaviour
 {
-    private Objective[] objectives = new Objective[]
+    private readonly Objective[] objectives = new Objective[]
     {
         new(ObjectiveType.PressButton, "Find the Magical Button of Wonder that definitely won't harm you."),
         new(ObjectiveType.HitCar, "Driving golf balls is easy. Try driving a car."),
@@ -37,6 +38,11 @@ public class ObjectiveController : MonoBehaviour
 
             SetText();
         }
+    }
+
+    public Objective GetObjective(ObjectiveType type)
+    {
+        return objectives.Where(search => search.Type == type).First();
     }
 
     private void SetText()
@@ -89,7 +95,13 @@ public class Objective
 
     private void Complete()
     {
+        if (IsComplete)
+        {
+            return;
+        }
+
         IsComplete = true;
+        CompletionCount = Quantity;
     }
 }
 
