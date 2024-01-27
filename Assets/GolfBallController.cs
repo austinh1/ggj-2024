@@ -9,8 +9,8 @@ public class GolfBallController : MonoBehaviour
     public Transform hole;
     public float upwardVelocity = .25f;
     public float forwardVelocity = 8f;
-    [Range(0.001f, 0.01f)]
-    public float swingRate = 0.001f;
+    [Range(0.01f, 0.1f)]
+    public float swingRate = 0.01f;
     public float groundRaycastDistance = 1f;
 
     [HideInInspector]
@@ -44,39 +44,26 @@ public class GolfBallController : MonoBehaviour
             strengthBarDir = 1;
             swingStrength = 0f;
         }
-        if (prepSwing)
+        if (prepSwing && Input.GetMouseButtonUp(0))
         {
-            if (Input.GetMouseButtonUp(0))
+            // Only allow hitting if the ball is currently grounded
+            if (grounded)
             {
-                // Only allow hitting if the ball is currently grounded
-                if (grounded)
-                {
-                    body.AddForce((anchor.forward + new Vector3(0, upwardVelocity * swingStrength, 0)) * (forwardVelocity * swingStrength), ForceMode.Impulse);
-                    body.AddTorque(anchor.right * 10f, ForceMode.Impulse);
-                }
-                else
-                {
-                    MissSwing();
-                }
-
-                swingStrength = 0f;
-                prepSwing = false;
-                strokes++;
-
-                var strokesText = UI.transform.Find("Strokes").GetComponent<TMPro.TextMeshProUGUI>();
-                strokesText.text = string.Format("Strokes: {0}", strokes);
+                body.AddForce((anchor.forward + new Vector3(0, upwardVelocity * swingStrength, 0)) * (forwardVelocity * swingStrength), ForceMode.Impulse);
+                body.AddTorque(anchor.right * 10f, ForceMode.Impulse);
             }
             else
             {
-                swingStrength = Math.Clamp(swingStrength + swingRate * strengthBarDir, 0f, 1f);
-                if (swingStrength == 0f || swingStrength == 1f)
-                {
-                    strengthBarDir = -strengthBarDir;
-                }
+                MissSwing();
             }
-        }
 
-        TickTimers();
+            swingStrength = 0f;
+            prepSwing = false;
+            strokes++;
+
+            var strokesText = UI.transform.Find("Strokes").GetComponent<TMPro.TextMeshProUGUI>();
+            strokesText.text = string.Format("Strokes: {0}", strokes);
+        }
     }
 
     private void FixedUpdate()
@@ -85,6 +72,17 @@ public class GolfBallController : MonoBehaviour
         {
             transform.position = Vector3.Lerp(transform.position, hole.position, .9f * Time.fixedDeltaTime);
         }
+
+        if (prepSwing)
+        {
+            swingStrength = Math.Clamp(swingStrength + swingRate * strengthBarDir, 0f, 1f);
+            if (swingStrength == 0f || swingStrength == 1f)
+            {
+                strengthBarDir = -strengthBarDir;
+            }
+        }
+
+        TickTimers();
     }
 
     private void TickTimers()

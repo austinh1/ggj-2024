@@ -146,11 +146,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cde50263e6d6454ba600f328868d246, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  collider: {fileID: 0}
   body: {fileID: 9120179443538325907}
   anchor: {fileID: 0}
+  hole: {fileID: 0}
   upwardVelocity: 1
   forwardVelocity: 12
-  swingRate: 0.004
+  swingRate: 0.04
   groundRaycastDistance: 1.5
   prepSwing: 0
   swingStrength: 0

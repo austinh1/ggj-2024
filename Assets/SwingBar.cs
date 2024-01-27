@@ -16,9 +16,9 @@ public class SwingBar : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        SetOpacity(ballController.prepSwing ? 1f : 0.75f);
+        SetOpacity(ballController.prepSwing ? 1f : 0.6f);
         fillBar.fillAmount = ballController.swingStrength;
     }
 
