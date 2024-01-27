@@ -83,7 +83,7 @@ public class Objective
         CompletionCount = Math.Min(CompletionCount + amount, Quantity);
         if (CompletionCount >= Quantity)
         {
-            IsComplete = true;
+            Complete();
         }
     }
 
