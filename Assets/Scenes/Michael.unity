@@ -787,10 +787,6 @@ PrefabInstance:
       propertyPath: spawnPlane
       value: 
       objectReference: {fileID: 1025533787}
-    - target: {fileID: 6824942311751931158, guid: 2864e6ef825178a4d99e8b89dcdf05ed, type: 3}
-      propertyPath: despawnTime
-      value: 30
-      objectReference: {fileID: 0}
     - target: {fileID: 7242067659484704581, guid: 2864e6ef825178a4d99e8b89dcdf05ed, type: 3}
       propertyPath: m_LocalPosition.x
       value: 3.7979217
@@ -1340,6 +1336,14 @@ PrefabInstance:
     - target: {fileID: 6787382420305042500, guid: b8e9b21c5acd5374a8dbcdaf0333f86e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8515164213356697065, guid: b8e9b21c5acd5374a8dbcdaf0333f86e, type: 3}
+      propertyPath: m_Size.x
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 8515164213356697065, guid: b8e9b21c5acd5374a8dbcdaf0333f86e, type: 3}
+      propertyPath: m_Size.z
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 8515164213356697065, guid: b8e9b21c5acd5374a8dbcdaf0333f86e, type: 3}
       propertyPath: m_Enabled
