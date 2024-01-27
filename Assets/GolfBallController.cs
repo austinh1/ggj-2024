@@ -20,12 +20,14 @@ public class GolfBallController : MonoBehaviour
 
     private int strengthBarDir = 1;
     private int missTimer = 0;
+    private GameObject UI;
+    private int strokes = 0;
 
     private bool lerpToHole = false;
     
     void Start()
     {
-        
+        UI = GameObject.FindWithTag("UI");
     }
 
     void Update()
@@ -59,6 +61,10 @@ public class GolfBallController : MonoBehaviour
 
                 swingStrength = 0f;
                 prepSwing = false;
+                strokes++;
+
+                var strokesText = UI.transform.Find("Strokes").GetComponent<TMPro.TextMeshProUGUI>();
+                strokesText.text = string.Format("Strokes: {0}", strokes);
             }
             else
             {
@@ -88,7 +94,6 @@ public class GolfBallController : MonoBehaviour
             missTimer--;
             if (missTimer == 0)
             {
-                var UI = GameObject.FindWithTag("UI");
                 var missText = UI.transform.Find("Miss");
                 missText.gameObject.SetActive(false);
             }
@@ -97,7 +102,6 @@ public class GolfBallController : MonoBehaviour
 
     private void MissSwing()
     {
-        var UI = GameObject.FindWithTag("UI");
         var missText = UI.transform.Find("Miss");
         missText.gameObject.SetActive(true);
         missTimer = 300;
