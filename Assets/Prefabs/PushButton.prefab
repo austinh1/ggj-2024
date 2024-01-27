@@ -12,22 +12,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: PushButton
       objectReference: {fileID: 0}
-    - target: {fileID: 1329582727870136, guid: 9d33c5200c013c44fad933a9dcd21b2c, type: 3}
-      propertyPath: m_Name
-      value: Button
-      objectReference: {fileID: 0}
-    - target: {fileID: 4762667354012708, guid: 9d33c5200c013c44fad933a9dcd21b2c, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 4762667354012708, guid: 9d33c5200c013c44fad933a9dcd21b2c, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 4762667354012708, guid: 9d33c5200c013c44fad933a9dcd21b2c, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: 4762667354012708, guid: 9d33c5200c013c44fad933a9dcd21b2c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 3.7979217
@@ -68,32 +52,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4762667354012708, guid: 9d33c5200c013c44fad933a9dcd21b2c, type: 3}
-      propertyPath: m_ConstrainProportionsScale
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 23912348307804488, guid: 9d33c5200c013c44fad933a9dcd21b2c, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 64276406896922416, guid: 9d33c5200c013c44fad933a9dcd21b2c, type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 1243506209795962, guid: 9d33c5200c013c44fad933a9dcd21b2c, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 3623863787256913981}
+      addedObject: {fileID: 6824942311751931158}
   m_SourcePrefab: {fileID: 100100000, guid: 9d33c5200c013c44fad933a9dcd21b2c, type: 3}
 --- !u!1 &7247557622677027867 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1243506209795962, guid: 9d33c5200c013c44fad933a9dcd21b2c, type: 3}
   m_PrefabInstance: {fileID: 7246315665110307681}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &3623863787256913981
+--- !u!114 &6824942311751931158
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -102,9 +74,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 7247557622677027867}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 33e4b66755b45e54789ec3b225bab03d, type: 3}
+  m_Script: {fileID: 11500000, guid: 64385ea33686bcd408f02a3360ea5f27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnObject: {fileID: 0}
-  spawnInterval: 15
-  spawnCount: 100
+  spawnObject: {fileID: 4382626748412952144, guid: 2d569902da2359e4abd333d8710dcbf1, type: 3}
+  spawnPlane: {fileID: 0}
+  infinite: 0
+  active: 0
+  spawnInterval: 10
+  spawnBatchSize: 10
+  spawnBatchCount: 100
+  despawnTime: 10
