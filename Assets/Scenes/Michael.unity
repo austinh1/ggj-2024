@@ -789,12 +789,20 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1025533787}
     - target: {fileID: 3623863787256913981, guid: 2864e6ef825178a4d99e8b89dcdf05ed, type: 3}
+      propertyPath: despawnTime
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3623863787256913981, guid: 2864e6ef825178a4d99e8b89dcdf05ed, type: 3}
       propertyPath: spawnObject
       value: 
       objectReference: {fileID: 4382626748412952144, guid: 2d569902da2359e4abd333d8710dcbf1, type: 3}
     - target: {fileID: 3623863787256913981, guid: 2864e6ef825178a4d99e8b89dcdf05ed, type: 3}
       propertyPath: spawnBatchSize
-      value: 20
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3623863787256913981, guid: 2864e6ef825178a4d99e8b89dcdf05ed, type: 3}
+      propertyPath: spawnBatchCount
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 7242067659484704581, guid: 2864e6ef825178a4d99e8b89dcdf05ed, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1307,10 +1315,6 @@ PrefabInstance:
       value: SpawnPlane
       objectReference: {fileID: 0}
     - target: {fileID: 6787382420305042500, guid: b8e9b21c5acd5374a8dbcdaf0333f86e, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6787382420305042500, guid: b8e9b21c5acd5374a8dbcdaf0333f86e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -1349,14 +1353,6 @@ PrefabInstance:
     - target: {fileID: 6787382420305042500, guid: b8e9b21c5acd5374a8dbcdaf0333f86e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6787382420305042500, guid: b8e9b21c5acd5374a8dbcdaf0333f86e, type: 3}
-      propertyPath: m_ConstrainProportionsScale
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8515164213356697065, guid: b8e9b21c5acd5374a8dbcdaf0333f86e, type: 3}
-      propertyPath: m_Size.x
-      value: 250
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
