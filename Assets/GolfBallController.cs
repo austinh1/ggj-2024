@@ -23,8 +23,6 @@ public class GolfBallController : MonoBehaviour
     private GameObject UI;
     private int strokes = 0;
 
-    private bool lerpToHole = false;
-    
     void Start()
     {
         UI = GameObject.FindWithTag("UI");
@@ -32,11 +30,6 @@ public class GolfBallController : MonoBehaviour
 
     void Update()
     {
-        if (lerpToHole)
-        {
-            return;
-        }
-        
         var grounded = Physics.Raycast(transform.position, Vector3.down, groundRaycastDistance);
         if (Input.GetMouseButtonDown(0))
         {
@@ -79,14 +72,6 @@ public class GolfBallController : MonoBehaviour
         TickTimers();
     }
 
-    private void FixedUpdate()
-    {
-        if (lerpToHole)
-        {
-            transform.position = Vector3.Lerp(transform.position, hole.position, .9f * Time.fixedDeltaTime);
-        }
-    }
-
     private void TickTimers()
     {
         if (missTimer > 0)
@@ -107,13 +92,11 @@ public class GolfBallController : MonoBehaviour
         missTimer = 300;
     }
 
-    private void OnCollisionEnter(Collision other)
+    private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Hole"))
         {
-            collider.enabled = false;
-            body.isKinematic = true;
-            lerpToHole = true;
+            body.AddForce(Vector3.up * 10f, ForceMode.Impulse);
         }
     }
 }
