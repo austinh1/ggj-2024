@@ -3,8 +3,10 @@ using UnityEngine;
 
 public class GolfBallController : MonoBehaviour
 {
+    public Collider collider;
     public Rigidbody body;
-    public GameObject anchor;
+    public Transform anchor;
+    public Transform hole;
     public float upwardVelocity = .25f;
     public float forwardVelocity = 8f;
     [Range(0.001f, 0.01f)]
@@ -18,6 +20,8 @@ public class GolfBallController : MonoBehaviour
 
     private int strengthBarDir = 1;
     private int missTimer = 0;
+
+    private bool lerpToHole = false;
     
     void Start()
     {
@@ -26,6 +30,11 @@ public class GolfBallController : MonoBehaviour
 
     void Update()
     {
+        if (lerpToHole)
+        {
+            return;
+        }
+        
         var grounded = Physics.Raycast(transform.position, Vector3.down, groundRaycastDistance);
         if (Input.GetMouseButtonDown(0))
         {
@@ -40,8 +49,8 @@ public class GolfBallController : MonoBehaviour
                 // Only allow hitting if the ball is currently grounded
                 if (grounded)
                 {
-                    body.AddForce((anchor.transform.forward + new Vector3(0, upwardVelocity * swingStrength, 0)) * (forwardVelocity * swingStrength), ForceMode.Impulse);
-                    body.AddTorque(anchor.transform.right * 10f, ForceMode.Impulse);
+                    body.AddForce((anchor.forward + new Vector3(0, upwardVelocity * swingStrength, 0)) * (forwardVelocity * swingStrength), ForceMode.Impulse);
+                    body.AddTorque(anchor.right * 10f, ForceMode.Impulse);
                 }
                 else
                 {
@@ -64,6 +73,14 @@ public class GolfBallController : MonoBehaviour
         TickTimers();
     }
 
+    private void FixedUpdate()
+    {
+        if (lerpToHole)
+        {
+            transform.position = Vector3.Lerp(transform.position, hole.position, .9f * Time.fixedDeltaTime);
+        }
+    }
+
     private void TickTimers()
     {
         if (missTimer > 0)
@@ -84,5 +101,15 @@ public class GolfBallController : MonoBehaviour
         var missText = UI.transform.Find("Miss");
         missText.gameObject.SetActive(true);
         missTimer = 300;
+    }
+
+    private void OnCollisionEnter(Collision other)
+    {
+        if (other.gameObject.CompareTag("Hole"))
+        {
+            collider.enabled = false;
+            body.isKinematic = true;
+            lerpToHole = true;
+        }
     }
 }
