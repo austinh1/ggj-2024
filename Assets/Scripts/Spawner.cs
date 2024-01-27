@@ -56,8 +56,12 @@ public class Spawner : MonoBehaviour
                 SpawnObject();
             }
 
-            // Decrement the spawns remaining
-            spawnBatchCount--;
+            if (!infinite)
+            {
+                // Decrement the spawns remaining
+                spawnBatchCount--;
+            }
+
             if (spawnBatchCount > 0)
             {
                 spawnTimer = spawnInterval;

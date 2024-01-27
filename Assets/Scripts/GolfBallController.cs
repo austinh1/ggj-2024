@@ -3,10 +3,8 @@ using UnityEngine;
 
 public class GolfBallController : MonoBehaviour
 {
-    public Collider collider;
     public Rigidbody body;
     public Transform anchor;
-    public Transform hole;
     public float upwardVelocity = .25f;
     public float forwardVelocity = 8f;
     [Range(0.01f, 0.1f)]
@@ -23,7 +21,8 @@ public class GolfBallController : MonoBehaviour
     private GameObject UI;
     private int strokes = 0;
 
-    private bool isBige = false;
+    private bool isBige;
+    private Vector3 lerpToScale;
 
     public GameObject Spring;
     private Collider springCollider;
@@ -31,6 +30,7 @@ public class GolfBallController : MonoBehaviour
     void Start()
     {
         UI = GameObject.FindWithTag("UI");
+        lerpToScale = Vector3.one;
         springCollider = GetComponent<CapsuleCollider>();
     }
 
@@ -63,6 +63,15 @@ public class GolfBallController : MonoBehaviour
             var strokesText = UI.transform.Find("Strokes").GetComponent<TMPro.TextMeshProUGUI>();
             strokesText.text = string.Format("Strokes: {0}", strokes);
         }
+
+        if (Input.GetButtonDown("Jump"))
+        {
+            body.drag = 2;
+        }
+        else if (Input.GetButtonUp("Jump"))
+        {
+            body.drag = 0;
+        }
     }
 
     private void FixedUpdate()
@@ -76,9 +85,9 @@ public class GolfBallController : MonoBehaviour
             }
         }
 
-        if (isBige)
+        if (isBige && transform.localScale != lerpToScale)
         {
-            transform.localScale = Vector3.Lerp(transform.localScale, Vector3.one * 2f, 2f * Time.fixedDeltaTime);
+            transform.localScale = Vector3.Lerp(transform.localScale, lerpToScale, 2f * Time.fixedDeltaTime);
         }
         // else
         // {
@@ -139,7 +148,9 @@ public class GolfBallController : MonoBehaviour
                 break;
             case "Food":
                 isBige = true;
+                lerpToScale *= 1.5f;
                 body.mass *= 1.25f;
+                groundRaycastDistance *= 1.5f;
                 Destroy(other.gameObject);
                 break;
             case "MovieCamera":
