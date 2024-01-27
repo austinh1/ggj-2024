@@ -25,9 +25,13 @@ public class GolfBallController : MonoBehaviour
 
     private bool isBige = false;
 
+    public GameObject Spring;
+    private Collider springCollider;
+
     void Start()
     {
         UI = GameObject.FindWithTag("UI");
+        springCollider = GetComponent<CapsuleCollider>();
     }
 
     void Update()
@@ -138,6 +142,20 @@ public class GolfBallController : MonoBehaviour
                 body.mass *= 1.25f;
                 Destroy(other.gameObject);
                 break;
+            case "MovieCamera":
+                body.AddForce((Camera.main.transform.position - transform.position) * 10f, ForceMode.Impulse);
+                Invoke("StopBall", 0.25f);
+                break;
+            case "Spring":
+                Spring.SetActive(true);
+                springCollider.enabled = true;
+                other.gameObject.SetActive(false);
+                break;
         }
+    }
+
+    void StopBall()
+    {
+        body.velocity = Vector3.zero;
     }
 }
