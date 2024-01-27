@@ -13,7 +13,7 @@ public class Car : MonoBehaviour
         forward = transform.forward;
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
         if (truckin)
         {
