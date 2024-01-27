@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class GolfBallController : MonoBehaviour
@@ -14,7 +12,8 @@ public class GolfBallController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        var grounded = Physics.Raycast(transform.position, Vector3.down, 5f);
+        if (grounded && Input.GetMouseButtonDown(0))
         {
             rigidbody.AddForce((transform.forward + new Vector3(0, 1, 0)) * 13f, ForceMode.Impulse);
         }
