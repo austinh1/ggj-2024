@@ -37,7 +37,8 @@ public class GolfBallController : MonoBehaviour
         {
             if (Input.GetMouseButtonUp(0))
             {
-                body.AddForce((transform.forward + new Vector3(0, upwardVelocity * swingStrength, 0)) * (forwardVelocity * swingStrength), ForceMode.Impulse);
+                body.velocity = Vector3.zero;
+                body.AddForce((anchor.transform.forward + new Vector3(0, upwardVelocity * swingStrength, 0)) * (forwardVelocity * swingStrength), ForceMode.Impulse);
                 swingStrength = 0f;
                 prepSwing = false;
             }
