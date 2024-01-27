@@ -10,6 +10,8 @@ public class CameraController : MonoBehaviour
     {
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
+
+        transform.position = ball.transform.position;
     }
 
     void Update()
