@@ -17,6 +17,7 @@ public class GolfBallController : MonoBehaviour
     public float swingStrength = 0f;
 
     private int strengthBarDir = 1;
+    private int missTimer = 0;
     
     void Start()
     {
@@ -26,7 +27,7 @@ public class GolfBallController : MonoBehaviour
     void Update()
     {
         var grounded = Physics.Raycast(transform.position, Vector3.down, groundRaycastDistance);
-        if (grounded && Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0))
         {
             prepSwing = true;
             strengthBarDir = 1;
@@ -36,8 +37,17 @@ public class GolfBallController : MonoBehaviour
         {
             if (Input.GetMouseButtonUp(0))
             {
-                body.AddForce((anchor.transform.forward + new Vector3(0, upwardVelocity * swingStrength, 0)) * (forwardVelocity * swingStrength), ForceMode.Impulse);
-                body.AddTorque(anchor.transform.right * 10f, ForceMode.Impulse); 
+                // Only allow hitting if the ball is currently grounded
+                if (grounded)
+                {
+                    body.AddForce((anchor.transform.forward + new Vector3(0, upwardVelocity * swingStrength, 0)) * (forwardVelocity * swingStrength), ForceMode.Impulse);
+                    body.AddTorque(anchor.transform.right * 10f, ForceMode.Impulse);
+                }
+                else
+                {
+                    MissSwing();
+                }
+
                 swingStrength = 0f;
                 prepSwing = false;
             }
@@ -49,6 +59,30 @@ public class GolfBallController : MonoBehaviour
                     strengthBarDir = -strengthBarDir;
                 }
             }
-        } 
+        }
+
+        TickTimers();
+    }
+
+    private void TickTimers()
+    {
+        if (missTimer > 0)
+        {
+            missTimer--;
+            if (missTimer == 0)
+            {
+                var UI = GameObject.FindWithTag("UI");
+                var missText = UI.transform.Find("Miss");
+                missText.gameObject.SetActive(false);
+            }
+        }
+    }
+
+    private void MissSwing()
+    {
+        var UI = GameObject.FindWithTag("UI");
+        var missText = UI.transform.Find("Miss");
+        missText.gameObject.SetActive(true);
+        missTimer = 300;
     }
 }
