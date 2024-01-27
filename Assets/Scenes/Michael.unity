@@ -1074,22 +1074,6 @@ PrefabInstance:
       propertyPath: ballController
       value: 
       objectReference: {fileID: 1348831821}
-    - target: {fileID: 7506879390095249663, guid: b3455b4bf53b81341aa16bc91c63f5a5, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7506879390095249663, guid: b3455b4bf53b81341aa16bc91c63f5a5, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7506879390095249663, guid: b3455b4bf53b81341aa16bc91c63f5a5, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: -1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7506879390095249663, guid: b3455b4bf53b81341aa16bc91c63f5a5, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -0.5
-      objectReference: {fileID: 0}
     - target: {fileID: 8086544057985066051, guid: b3455b4bf53b81341aa16bc91c63f5a5, type: 3}
       propertyPath: m_Name
       value: UI
