@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6258008036338520151}
   - component: {fileID: 8845531281642082896}
   - component: {fileID: 5936178453822932265}
+  - component: {fileID: 3308399306189424625}
   m_Layer: 5
   m_Name: SwingBar
   m_TagString: Untagged
@@ -102,6 +103,19 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &3308399306189424625
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1003299166334334318}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f3e6f89a50771d47b7f4d3546f2f1f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ballController: {fileID: 0}
 --- !u!1 &2484131528887380063
 GameObject:
   m_ObjectHideFlags: 0
@@ -113,7 +127,6 @@ GameObject:
   - component: {fileID: 7962233855108237936}
   - component: {fileID: 108972409437292907}
   - component: {fileID: 2951472052774170645}
-  - component: {fileID: 6786291902861280632}
   m_Layer: 5
   m_Name: Strength
   m_TagString: Untagged
@@ -138,7 +151,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -1, y: -1}
+  m_SizeDelta: {x: -2, y: -2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &108972409437292907
 CanvasRenderer:
@@ -155,7 +168,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2484131528887380063}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -173,24 +186,11 @@ MonoBehaviour:
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 1
-  m_FillAmount: 0
+  m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &6786291902861280632
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2484131528887380063}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7f3e6f89a50771d47b7f4d3546f2f1f2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ballController: {fileID: 0}
 --- !u!1 &5249321508289347072
 GameObject:
   m_ObjectHideFlags: 0
