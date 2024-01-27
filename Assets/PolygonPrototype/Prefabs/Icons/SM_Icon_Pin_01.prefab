@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 23217187821262034}
   - component: {fileID: 3008155774957797047}
   - component: {fileID: 2152622121387792372}
+  - component: {fileID: 5288617907097342736}
   m_Layer: 0
   m_Name: SM_Icon_Pin_01
   m_TagString: Untagged
@@ -135,3 +136,15 @@ CapsuleCollider:
   m_Height: 0.5852463
   m_Direction: 1
   m_Center: {x: 0, y: 0.02, z: 0}
+--- !u!114 &5288617907097342736
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1663464624540946}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f3429090b878fe49bf933f4f1d441ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

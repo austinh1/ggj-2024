@@ -24,10 +24,14 @@ public class GolfBallController : MonoBehaviour
     private bool isBige;
     private Vector3 lerpToScale;
 
+    public GameObject Spring;
+    private Collider springCollider;
+
     void Start()
     {
         UI = GameObject.FindWithTag("UI");
         lerpToScale = Vector3.one;
+        springCollider = GetComponent<CapsuleCollider>();
     }
 
     void Update()
@@ -110,7 +114,7 @@ public class GolfBallController : MonoBehaviour
     {
         var missText = UI.transform.Find("Miss");
         missText.gameObject.SetActive(true);
-        missTimer = 300;
+        missTimer = 45;
     }
 
     private void OnCollisionEnter(Collision other)
@@ -149,6 +153,20 @@ public class GolfBallController : MonoBehaviour
                 groundRaycastDistance *= 1.5f;
                 Destroy(other.gameObject);
                 break;
+            case "MovieCamera":
+                body.AddForce((Camera.main.transform.position - transform.position) * 10f, ForceMode.Impulse);
+                Invoke("StopBall", 0.25f);
+                break;
+            case "Spring":
+                Spring.SetActive(true);
+                springCollider.enabled = true;
+                other.gameObject.SetActive(false);
+                break;
         }
+    }
+
+    void StopBall()
+    {
+        body.velocity = Vector3.zero;
     }
 }
