@@ -31,16 +31,19 @@ public class GolfBallController : MonoBehaviour
         {
             prepSwing = true;
             strengthBarDir = 1;
+            swingStrength = 0f;
         }
         if (prepSwing)
         {
             if (Input.GetMouseButtonUp(0))
             {
                 body.AddForce((transform.forward + new Vector3(0, upwardVelocity, 0)) * forwardVelocity * swingStrength, ForceMode.Impulse);
+                swingStrength = 0f;
+                prepSwing = false;
             }
             else
             {
-                swingStrength += Math.Clamp(swingRate * strengthBarDir, 0f, 1f);
+                swingStrength = Math.Clamp(swingStrength + swingRate * strengthBarDir, 0f, 1f);
                 if (swingStrength == 0f || swingStrength == 1f)
                 {
                     strengthBarDir = -strengthBarDir;
@@ -56,7 +59,7 @@ public class GolfBallController : MonoBehaviour
         if (Input.GetKey(KeyCode.D))
         {
             anchor.transform.eulerAngles += new Vector3(0, rightRotateSpeed, 0);
-        }
+        } 
     }
 
     private void LateUpdate() {
