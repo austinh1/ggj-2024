@@ -45,6 +45,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb2dfd8fd71c873409bb80c6295a86b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ball: {fileID: 0}
+  lerpToAnchorSpeed: 8
   rotateSensitivity: 1
 --- !u!1 &6429123729722486515
 GameObject:

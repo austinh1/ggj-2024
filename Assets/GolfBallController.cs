@@ -9,12 +9,13 @@ public class GolfBallController : MonoBehaviour
     public float forwardVelocity = 8f;
     [Range(0.001f, 0.01f)]
     public float swingRate = 0.001f;
+    public float groundRaycastDistance = 1f;
 
     [HideInInspector]
     public bool prepSwing = false;
     [HideInInspector]
     public float swingStrength = 0f;
-    
+
     private int strengthBarDir = 1;
     
     void Start()
@@ -24,7 +25,7 @@ public class GolfBallController : MonoBehaviour
 
     void Update()
     {
-        var grounded = Physics.Raycast(transform.position, Vector3.down, 1f);
+        var grounded = Physics.Raycast(transform.position, Vector3.down, groundRaycastDistance);
         if (grounded && Input.GetMouseButtonDown(0))
         {
             prepSwing = true;
@@ -35,8 +36,8 @@ public class GolfBallController : MonoBehaviour
         {
             if (Input.GetMouseButtonUp(0))
             {
-                body.velocity = Vector3.zero;
                 body.AddForce((anchor.transform.forward + new Vector3(0, upwardVelocity * swingStrength, 0)) * (forwardVelocity * swingStrength), ForceMode.Impulse);
+                body.AddTorque(anchor.transform.right * 10f, ForceMode.Impulse); 
                 swingStrength = 0f;
                 prepSwing = false;
             }
@@ -49,9 +50,5 @@ public class GolfBallController : MonoBehaviour
                 }
             }
         } 
-    }
-
-    private void LateUpdate() {
-        anchor.transform.position = transform.position;
     }
 }
