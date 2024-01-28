@@ -59,6 +59,8 @@ public class ObjectiveController : MonoBehaviour
     private TMPro.TextMeshProUGUI textComponent;
     private Transform completionMarker;
     private AudioManager audioManager;
+    private Coroutine nextObjectiveCoroutine;
+    private Coroutine ttsCoroutine;
 
     public UnityEvent<ObjectiveType> onObjectiveCompleted = new();
 
@@ -74,6 +76,14 @@ public class ObjectiveController : MonoBehaviour
             SetText(objective);
             SetCompletionText(objective.CompletionPlayerText);
             audioManager.PlayAudioClip("objective completed");
+
+            if (ttsCoroutine != null)
+            {
+                StopCoroutine(ttsCoroutine);
+            }
+
+            var ttsSoundName = "objective-" + objective.Type.ToString();
+            ttsCoroutine = StartCoroutine(PlaySoundDelayed(ttsSoundName, 1.2f));
             
             if (!completionMarker.gameObject.activeSelf)
             {
@@ -81,7 +91,7 @@ public class ObjectiveController : MonoBehaviour
                 completionMarker.gameObject.SetActive(true);
             }
             
-            StartCoroutine(DelayNextObjective(5));
+            nextObjectiveCoroutine = StartCoroutine(DelayNextObjective(5));
         });
 
         SetText(currentObjective);
@@ -126,6 +136,13 @@ public class ObjectiveController : MonoBehaviour
         SetText(currentObjective);
     }
 
+    private IEnumerator PlaySoundDelayed(string clipName, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+
+        audioManager.PlayAudioClip(clipName);
+    }
+
     public void SetText(Objective objective)
     {
         var newText = "OBJECTIVE:\n";
@@ -148,7 +165,10 @@ public class ObjectiveController : MonoBehaviour
             textComponent.text = newText;
         }
 
-        StopAllCoroutines();
+        if (nextObjectiveCoroutine != null)
+        {
+            StopCoroutine(nextObjectiveCoroutine);
+        }
     }
 }
 
