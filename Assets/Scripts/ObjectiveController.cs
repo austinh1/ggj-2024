@@ -44,7 +44,7 @@ public class ObjectiveController : MonoBehaviour
         new(ObjectiveType.FireHydrant, "Become the Metropolitan Water Authority fire hydrant tester", "They work just fine.", 7),
         new(ObjectiveType.RightClickToBrake, "Cool it there, hotshot. Right-click to slow ya moves!", "Shawty got slow, slow, slow"),
         new(ObjectiveType.HitCar, "Do Golf Balls Dream of Electric SUVs?", "THE FUZZ"),
-        new(ObjectiveType.EnterHole, "THIS IS MY HOLE. IT WAS MADE FOR ME.", "Guess I'm gonna live forever."),
+        new(ObjectiveType.EnterHole, "THIS IS MY HOLE. IT WAS MADE FOR ME.", "Ohp, maybe not."),
         new(ObjectiveType.PumpkinForest, "We're off to see the wizard, the wonderful wizard of the pumpkin forest", "Ah, I've been expecting me. You meet again."),
         new(ObjectiveType.DumpsterFire, "Remember kids, Always Set Dumpsters On Fire", "fudge, forgot my marshmallows"),
         new(ObjectiveType.Orangatang, "Find the benevolent overlord", "he prolly eats like so many mangoes"),
