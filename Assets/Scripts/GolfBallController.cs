@@ -278,6 +278,7 @@ public class GolfBallController : MonoBehaviour
                 break;
             case "MiddleOfDonut":
                 objectiveController.GetObjective(ObjectiveType.Donut).Increment();
+                AudioManager.Instance().PlayAudioClip("donut - thunk");
                 break;
         }
     }
