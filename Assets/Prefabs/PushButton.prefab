@@ -103,7 +103,7 @@ MonoBehaviour:
   spawnInterval: 10
   spawnBatchSize: 10
   spawnBatchCount: 100
-  despawnTime: 10
+  despawnTime: 20
 --- !u!136 &2769971270341281132
 CapsuleCollider:
   m_ObjectHideFlags: 0

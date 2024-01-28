@@ -2928,14 +2928,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8515164213356697065, guid: b8e9b21c5acd5374a8dbcdaf0333f86e, type: 3}
-      propertyPath: m_Size.x
-      value: 80
-      objectReference: {fileID: 0}
-    - target: {fileID: 8515164213356697065, guid: b8e9b21c5acd5374a8dbcdaf0333f86e, type: 3}
-      propertyPath: m_Size.z
-      value: 100
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3723,10 +3715,6 @@ PrefabInstance:
       propertyPath: spawnPlane
       value: 
       objectReference: {fileID: 1054927701}
-    - target: {fileID: 6824942311751931158, guid: 2864e6ef825178a4d99e8b89dcdf05ed, type: 3}
-      propertyPath: despawnTime
-      value: 20
-      objectReference: {fileID: 0}
     - target: {fileID: 7242067659484704581, guid: 2864e6ef825178a4d99e8b89dcdf05ed, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.009813036
