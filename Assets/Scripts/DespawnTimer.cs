@@ -6,11 +6,11 @@ public class DespawnTimer : MonoBehaviour
     [Range(0f, 600f)]
     public float timeSeconds = 10f;
 
-    private Coroutine destroyCorutine;
+    private Coroutine destroyCoroutine;
 
     void Start()
     {
-        destroyCorutine = StartCoroutine(DestroyAfterDelay(timeSeconds));
+        destroyCoroutine = StartCoroutine(DestroyAfterDelay(timeSeconds));
     }
 
     // Coroutine to destroy the object after a delay
@@ -22,9 +22,9 @@ public class DespawnTimer : MonoBehaviour
 
     public void Cancel()
     {
-        if (destroyCorutine != null)
+        if (destroyCoroutine != null)
         {
-            StopCoroutine(destroyCorutine);
+            StopCoroutine(destroyCoroutine);
             // When it's cancelled, there's no way to start it again, so just remove the script
             Destroy(this);
         }
