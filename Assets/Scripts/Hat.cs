@@ -8,6 +8,7 @@ public class Hat : MonoBehaviour
     private Rigidbody playerBody;
     public float heightMultiplier = 0.35f;
     public float forwardMultiplier = 0.25f;
+    public float sideOffset = 0f;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -27,6 +28,6 @@ public class Hat : MonoBehaviour
         }
         
         transform.forward = Vector3.Lerp(transform.forward, playerBody.velocity.normalized, 10f * Time.fixedDeltaTime);
-        transform.position = Vector3.Lerp(transform.position, (player.position + Vector3.up * heightMultiplier) + (transform.forward * forwardMultiplier), 20f * Time.fixedDeltaTime);
+        transform.position = Vector3.Lerp(transform.position, (player.position + Vector3.up * heightMultiplier + transform.right * sideOffset) + (transform.forward * forwardMultiplier), 20f * Time.fixedDeltaTime);
     }
 }

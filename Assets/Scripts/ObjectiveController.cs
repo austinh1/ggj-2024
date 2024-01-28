@@ -51,6 +51,7 @@ public class ObjectiveController : MonoBehaviour
         new(ObjectiveType.MovieCamera, "There should be a movie camera around here some where... let's make a movie!", "JUMP SCARE!"),
         new(ObjectiveType.Spring, "Wonder if you could bounce higher with spring attached... let's find out."),
     };
+    
     public Objective currentObjective { get; private set; }
     private TMPro.TextMeshProUGUI textComponent;
     private Transform completionMarker;
@@ -183,7 +184,7 @@ public class Objective
             var controller = ObjectiveController.Instance();
             if (controller.currentObjective == this)
             {
-                ObjectiveController.Instance().SetText(this);
+                controller.SetText(this);
             }
         }
     }
