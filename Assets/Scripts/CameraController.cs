@@ -6,6 +6,7 @@ public class CameraController : MonoBehaviour
     public Transform camera;
     public float lerpToAnchorSpeed = .9f;
     public float rotateSensitivity = 1f;
+    public float gamepadRotateSensitivity = 0.1f;
     
     void Start()
     {
@@ -17,7 +18,18 @@ public class CameraController : MonoBehaviour
 
     void Update()
     {
-        var newAngles = transform.eulerAngles + new Vector3(-rotateSensitivity * Input.GetAxis("Mouse Y"), rotateSensitivity * Input.GetAxis("Mouse X"), 0);
+        float xRotation;
+        float yRotation;
+
+        xRotation = Input.GetAxis("Vertical") != 0
+            ? gamepadRotateSensitivity * Input.GetAxis("Vertical")
+            : rotateSensitivity * Input.GetAxis("Mouse Y");
+        yRotation = Input.GetAxis("Horizontal") != 0
+            ? gamepadRotateSensitivity * Input.GetAxis("Horizontal")
+            : rotateSensitivity * Input.GetAxis("Mouse X");
+            
+        
+        var newAngles = transform.eulerAngles + new Vector3(-xRotation, yRotation, 0);
         // newAngles = new Vector3(Mathf.Clamp(newAngles.x, 0f, 90f), newAngles.y, newAngles.z);
         transform.eulerAngles = newAngles;    
     }

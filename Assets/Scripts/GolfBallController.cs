@@ -39,13 +39,13 @@ public class GolfBallController : MonoBehaviour
     void Update()
     {
         var grounded = Physics.Raycast(transform.position, Vector3.down, groundRaycastDistance);
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) || Input.GetButtonDown("Fire1"))
         {
             prepSwing = true;
             strengthBarDir = 1;
             swingStrength = 0f;
         }
-        if (prepSwing && Input.GetMouseButtonUp(0))
+        if (prepSwing && (Input.GetMouseButtonUp(0) || Input.GetButtonUp("Fire1")))
         {
             // Only allow hitting if the ball is currently grounded
             if (grounded)
@@ -66,11 +66,11 @@ public class GolfBallController : MonoBehaviour
             strokesText.text = string.Format("Strokes: {0}", strokes);
         }
 
-        if (Input.GetMouseButtonDown(1))
+        if (Input.GetMouseButtonDown(1) || Input.GetButtonDown("Fire2"))
         {
             body.drag = 2;
         }
-        else if (Input.GetMouseButtonUp(1))
+        else if (Input.GetMouseButtonUp(1) || Input.GetButtonUp("Fire2"))
         {
             body.drag = 0;
         }
