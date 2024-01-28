@@ -6,16 +6,20 @@ public enum ObjectiveType
 {
     PressButton,
     EnterHole,
-    HitCar
+    HitCar,
+    ClimbMountain,
+    MaxSwing
 }
 
 public class ObjectiveController : MonoBehaviour
 {
     private readonly Objective[] objectives = new Objective[]
     {
-        new(ObjectiveType.EnterHole, "Make your way into the hole!"),
+        new(ObjectiveType.MaxSwing, "Swing for the moon! Achieve a full power swing 3 times.", 3),
         new(ObjectiveType.PressButton, "Find the Magical Button of Wonder that definitely won't harm you."),
         new(ObjectiveType.HitCar, "Driving golf balls is easy. Try driving a car."),
+        new(ObjectiveType.ClimbMountain, "Make the long trek up a treacherous mountain."),
+        new(ObjectiveType.EnterHole, "Make your way into the hole!"),
     };
     private int currentIndex = 0;
     private Objective currentObjective;
@@ -95,18 +99,17 @@ public class ObjectiveController : MonoBehaviour
     private void SetText()
     {
         var newText = "OBJECTIVE:\n";
-        if (currentIndex < objectives.Length)
+        if (currentObjective != null)
         {
             newText += currentObjective.Desc;
+            if (currentObjective.Quantity > 1)
+            {
+                newText += string.Format("\n{0}/{1}", currentObjective.CompletionCount, currentObjective.Quantity);
+            }
         }
         else
         {
             newText = "You have completed all the objectives. Well done!";
-        }
-
-        if (currentObjective.Quantity > 1)
-        {
-            newText += string.Format("\n{0}/{1}", currentObjective.CompletionCount, currentObjective.Quantity);
         }
 
         if (textComponent != null)

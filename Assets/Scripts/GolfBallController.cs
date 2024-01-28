@@ -52,6 +52,11 @@ public class GolfBallController : MonoBehaviour
             {
                 body.AddForce((anchor.forward + new Vector3(0, upwardVelocity * swingStrength, 0)) * (forwardVelocity * swingStrength), ForceMode.Impulse);
                 body.AddTorque(anchor.right * 10f, ForceMode.Impulse);
+
+                if (swingStrength == 1f)
+                {
+                    ObjectiveController.Instance().GetObjective(ObjectiveType.MaxSwing).Increment();
+                }
             }
             else
             {
