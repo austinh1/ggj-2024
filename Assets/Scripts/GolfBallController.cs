@@ -81,6 +81,11 @@ public class GolfBallController : MonoBehaviour
             prepSwing = false;
             strokes++;
 
+            if (strokes == 1)
+            {
+                ObjectiveController.Instance().GetObjective(ObjectiveType.Fore).Increment();
+            }
+
             var strokesText = UI.transform.Find("Strokes").GetComponent<TMPro.TextMeshProUGUI>();
             strokesText.text = string.Format("Strokes: {0}", strokes);
         }
@@ -200,6 +205,7 @@ public class GolfBallController : MonoBehaviour
             case "MovieCamera":
                 body.AddForce((Camera.main.transform.position - transform.position) * 10f, ForceMode.Impulse);
                 Invoke("StopBall", 0.25f);
+                ObjectiveController.Instance().GetObjective(ObjectiveType.MovieCamera).Increment();
                 break;
             case "Spring":
                 Spring.SetActive(true);
@@ -213,6 +219,7 @@ public class GolfBallController : MonoBehaviour
                 break;
             case "VRHeadset":
                 camController.IsThisVR();
+                ObjectiveController.Instance().GetObjective(ObjectiveType.VR).Increment();
                 break;
             case "MiddleOfDonut":
                 ObjectiveController.Instance().GetObjective(ObjectiveType.Donut).Increment();

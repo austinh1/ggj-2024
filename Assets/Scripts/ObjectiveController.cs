@@ -22,27 +22,33 @@ public enum ObjectiveType
     Dominoes,
     DumpsterFire,
     Orangatang,
+    Fore,
+    MovieCamera,
+    VR,
 }
 
 public class ObjectiveController : MonoBehaviour
 {
     private readonly Objective[] objectives = new Objective[]
     {
-        new(ObjectiveType.Dominoes, "Knock over some dominoes!", "Bet that fridge had some tasty stuff in it."),
-        new(ObjectiveType.StickyPizza, "Pizza time!", "A dish best served cold, in my opinion."),
-        new(ObjectiveType.Donut, "Time to grab a snack! Where's that donut again?"),
+        new(ObjectiveType.Fore, "Swing yer club and hit the golf ball!", "FORE! Oh wait, didn't go very far did I?"),
+        new(ObjectiveType.MaxSwing, "Swing for the moon! Achieve a full power swing.", "Didn't quite make it, but I'll get there next time."),
         new(ObjectiveType.Bowling, "Strike! Smack some pins around and pretend you're a bowling ball."),
+        new(ObjectiveType.StickyPizza, "Pizza time!", "A dish best served cold, in my opinion."),
+        new(ObjectiveType.PressButton, "Find the Magical Button of Wonder that definitely won't harm you."),
+        new(ObjectiveType.ClimbMountain, "Make the long trek up a treacherous mountain."),
+        new(ObjectiveType.Dominoes, "Knock over some dominoes!", "Bet that fridge had some tasty stuff in it."),
+        new(ObjectiveType.Donut, "Time to grab a snack! Where's that donut again?"),
         new(ObjectiveType.ObstacleCourse, "Show me your skillz by collecting the trophy at the top of the tower!"),
         new(ObjectiveType.FireHydrant, "Become a firefighter by using all of the fire hydrants.", "", 7),
-        new(ObjectiveType.MaxSwing, "Swing for the moon! Achieve a full power swing.", "Didn't quite make it, but I'll get there next time."),
         new(ObjectiveType.RightClickToBrake, "Cool it there hot shot. Press right click to slow yourself down!", "Don't make me turn this golf ball around!"),
-        new(ObjectiveType.PressButton, "Find the Magical Button of Wonder that definitely won't harm you."),
         new(ObjectiveType.HitCar, "Driving golf balls is easy. Try driving a car.", "Gotta go fast, I guess."),
-        new(ObjectiveType.ClimbMountain, "Make the long trek up a treacherous mountain."),
         new(ObjectiveType.EnterHole, "Make your way into the hole!"),
         new(ObjectiveType.PumpkinForest, "Travel into the mystical pumpkin forest, but beware of what you find...", "Why hello, Mr. Skull. We meet again."),
         new(ObjectiveType.DumpsterFire, "Start a dumpster fire for the heck of it.", "Honestly? Kinda toasty in here, I like it."),
         new(ObjectiveType.Orangatang, "Gaze in the upward direction, I dare you.", "AAAHH he's been up there the whole time?!"),
+        new(ObjectiveType.MovieCamera, "There should be a movie camera around here some where... let's make a movie!", "JUMP SCARE!"),
+        new(ObjectiveType.VR, "VR is the future, and the future is now.", "Is this VR?"),
     };
     private Objective currentObjective;
     private TMPro.TextMeshProUGUI textComponent;

@@ -158,7 +158,7 @@ MonoBehaviour:
   slowmoDuration: 10
   prepSwing: 0
   swingStrength: 0
-  Spring: {fileID: 0}
+  Spring: {fileID: 3890751064435305131}
   camController: {fileID: 0}
 --- !u!114 &-7229157976380643673
 MonoBehaviour:
@@ -263,5 +263,10 @@ PrefabInstance:
 --- !u!4 &3885099352201997809 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4660434758299748, guid: e6fe506f7bd1eaa469a923de25e626b0, type: 3}
+  m_PrefabInstance: {fileID: 3889469481396592021}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &3890751064435305131 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1287083360417598, guid: e6fe506f7bd1eaa469a923de25e626b0, type: 3}
   m_PrefabInstance: {fileID: 3889469481396592021}
   m_PrefabAsset: {fileID: 0}
