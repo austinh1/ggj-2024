@@ -87,6 +87,11 @@ public class GolfBallController : MonoBehaviour
 
         if (Input.GetMouseButtonDown(1) || Input.GetButtonDown("Fire2"))
         {
+            var objective = ObjectiveController.Instance().GetObjective(ObjectiveType.RightClickToBrake);
+            if (!objective.IsComplete)
+            {
+                objective.Increment();
+            }
             body.drag = 2;
         }
         else if (Input.GetMouseButtonUp(1) || Input.GetButtonUp("Fire2"))
@@ -152,7 +157,18 @@ public class GolfBallController : MonoBehaviour
             case "Sticky":
                 body.drag = 2f;
                 body.angularDrag = 30;
+                ObjectiveController.Instance().GetObjective(ObjectiveType.StickyPizza).Increment();
                 break;
+            case "Trophy":
+            {
+                ObjectiveController.Instance().GetObjective(ObjectiveType.ObstacleCourse).Increment();
+                break;
+            }
+            case "Pin":
+            {
+                ObjectiveController.Instance().GetObjective(ObjectiveType.Bowling).Increment();
+                break;
+            }
         }
     }
     
@@ -198,7 +214,9 @@ public class GolfBallController : MonoBehaviour
             case "VRHeadset":
                 camController.IsThisVR();
                 break;
-
+            case "MiddleOfDonut":
+                ObjectiveController.Instance().GetObjective(ObjectiveType.Donut).Increment();
+                break;
         }
     }
 

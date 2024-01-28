@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Prop_Hydrant_01 Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 118212, guid: 400c967e5d1329c4c9dd5bc47e49d545, type: 3}
+      propertyPath: m_TagString
+      value: FireHydrant
+      objectReference: {fileID: 0}
     - target: {fileID: 479640, guid: 400c967e5d1329c4c9dd5bc47e49d545, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.89
@@ -77,3 +81,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb4bdc4490871484fbfd878ca0a710bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fire: {fileID: 0}

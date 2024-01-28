@@ -33,8 +33,14 @@ public class CameraController : MonoBehaviour
             
         
         var newAngles = transform.eulerAngles + new Vector3(-xRotation, yRotation, 0);
-        // newAngles = new Vector3(Mathf.Clamp(newAngles.x, 0f, 90f), newAngles.y, newAngles.z);
-        transform.eulerAngles = newAngles;    
+        transform.eulerAngles = newAngles;
+        
+        Debug.Log(newAngles);
+        var orangatangAngle = new Vector3(299.72f, 84.95f, 0f);
+        if (Vector3.Distance(newAngles, orangatangAngle) < 20f)
+        {
+            ObjectiveController.Instance().GetObjective(ObjectiveType.Orangatang).Increment();
+        }
     }
     
     private void FixedUpdate()

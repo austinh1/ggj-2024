@@ -49,6 +49,9 @@ MonoBehaviour:
   camera: {fileID: 6342484659508478751}
   lerpToAnchorSpeed: 8
   rotateSensitivity: 1
+  gamepadRotateSensitivity: 0.1
+  cameraLeft: {fileID: 0}
+  cameraRight: {fileID: 0}
 --- !u!1 &6429123729722486515
 GameObject:
   m_ObjectHideFlags: 0

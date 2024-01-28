@@ -16,11 +16,12 @@ public class FireHydrant : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
-        if (other.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Player") && !fire.gameObject.activeSelf)
         {
             fire.gameObject.SetActive(true);
             var emissionModule = fire.emission;
             emissionModule.enabled = true;
+            ObjectiveController.Instance().GetObjective(ObjectiveType.FireHydrant).Increment();
         }
     }
 }
