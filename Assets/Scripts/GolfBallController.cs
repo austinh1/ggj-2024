@@ -47,6 +47,9 @@ public class GolfBallController : MonoBehaviour
     private ObjectiveController objectiveController;
     private AudioManager audioManager;
 
+    private float timeLastGrounded;
+    public AudioSource screamAudio;
+
     void Start()
     {
         UI = GameObject.FindWithTag("UI");
@@ -67,6 +70,14 @@ public class GolfBallController : MonoBehaviour
             return;
         
         var grounded = Physics.Raycast(transform.position, Vector3.down, groundRaycastDistance);
+        if (grounded)
+        {
+            timeLastGrounded = Time.time;
+            if (screamAudio.isPlaying)
+            {
+                screamAudio.Stop();
+            }
+        }
 
         CheckIfStuck(grounded);
         
@@ -174,6 +185,11 @@ public class GolfBallController : MonoBehaviour
         if (Time.time - slowmoStartTime >= slowmoDuration && Time.timeScale < 1f)
         {
             Time.timeScale = 1f;
+        }
+
+        if (Time.time - timeLastGrounded > 5f && !screamAudio.isPlaying)
+        {
+            screamAudio.Play();
         }
         
         lastPos = transform.position;
