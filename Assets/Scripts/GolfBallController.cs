@@ -245,6 +245,7 @@ public class GolfBallController : MonoBehaviour
         var missText = UI.transform.Find("Miss");
         missText.gameObject.SetActive(true);
         missTimer = 45;
+        audioManager.PlayAudioClip("move - whiff");
     }
 
     private void OnCollisionEnter(Collision other)

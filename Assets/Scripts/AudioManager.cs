@@ -23,7 +23,7 @@ public class AudioManager : MonoBehaviour
 
     public void PlayAudioClip(string clipName)
     {
-        var clip = audioClips.First(ac => ac.name == clipName);
+        var clip = audioClips.FirstOrDefault(ac => ac.name == clipName);
         if (clip != null)
         {
             audioSource.PlayOneShot(clip);
