@@ -3,6 +3,7 @@ using UnityEngine;
 public class CameraController : MonoBehaviour
 {
     public Transform ball;
+    public Transform camera;
     public float lerpToAnchorSpeed = .9f;
     public float rotateSensitivity = 1f;
     
@@ -17,8 +18,8 @@ public class CameraController : MonoBehaviour
     void Update()
     {
         var newAngles = transform.eulerAngles + new Vector3(-rotateSensitivity * Input.GetAxis("Mouse Y"), rotateSensitivity * Input.GetAxis("Mouse X"), 0);
-        newAngles = new Vector3(Mathf.Clamp(newAngles.x, 0f, 90f), newAngles.y, newAngles.z);
-        transform.eulerAngles = newAngles;
+        // newAngles = new Vector3(Mathf.Clamp(newAngles.x, 0f, 90f), newAngles.y, newAngles.z);
+        transform.eulerAngles = newAngles;    
     }
     
     private void FixedUpdate()

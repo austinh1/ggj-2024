@@ -46,6 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ball: {fileID: 0}
+  camera: {fileID: 6342484659508478751}
   lerpToAnchorSpeed: 8
   rotateSensitivity: 1
 --- !u!1 &6429123729722486515

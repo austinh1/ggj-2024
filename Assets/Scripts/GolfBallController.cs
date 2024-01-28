@@ -66,11 +66,11 @@ public class GolfBallController : MonoBehaviour
             strokesText.text = string.Format("Strokes: {0}", strokes);
         }
 
-        if (Input.GetButtonDown("Jump"))
+        if (Input.GetMouseButtonDown(1))
         {
             body.drag = 2;
         }
-        else if (Input.GetButtonUp("Jump"))
+        else if (Input.GetMouseButtonUp(1))
         {
             body.drag = 0;
         }
