@@ -42,6 +42,7 @@ public class GolfBallController : MonoBehaviour
     private Vector3 startPosition;
 
     public CameraController camController;
+    private ObjectiveController objectiveController;
 
     void Start()
     {
@@ -52,6 +53,8 @@ public class GolfBallController : MonoBehaviour
         var position = transform.position;
         lastPos = position;
         startPosition = position;
+
+        objectiveController = ObjectiveController.Instance();
     }
 
     void Update()
@@ -80,7 +83,7 @@ public class GolfBallController : MonoBehaviour
 
                 if (swingStrength == 1f)
                 {
-                    ObjectiveController.Instance().GetObjective(ObjectiveType.MaxSwing).Increment();
+                    objectiveController.GetObjective(ObjectiveType.MaxSwing).Increment();
                 }
             }
             else
@@ -94,7 +97,7 @@ public class GolfBallController : MonoBehaviour
 
             if (strokes == 1)
             {
-                ObjectiveController.Instance().GetObjective(ObjectiveType.Fore).Increment();
+                objectiveController.GetObjective(ObjectiveType.Fore).Increment();
             }
 
             var strokesText = UI.transform.Find("Strokes").GetComponent<TMPro.TextMeshProUGUI>();
@@ -103,7 +106,7 @@ public class GolfBallController : MonoBehaviour
 
         if (Input.GetMouseButtonDown(1) || Input.GetButtonDown("Fire2"))
         {
-            var objective = ObjectiveController.Instance().GetObjective(ObjectiveType.RightClickToBrake);
+            var objective = objectiveController.GetObjective(ObjectiveType.RightClickToBrake);
             if (!objective.IsComplete)
             {
                 objective.Increment();
@@ -213,16 +216,16 @@ public class GolfBallController : MonoBehaviour
             case "Sticky":
                 body.drag = 2f;
                 body.angularDrag = 30;
-                ObjectiveController.Instance().GetObjective(ObjectiveType.StickyPizza).Increment();
+                objectiveController.GetObjective(ObjectiveType.StickyPizza).Increment();
                 break;
             case "Trophy":
             {
-                ObjectiveController.Instance().GetObjective(ObjectiveType.ObstacleCourse).Increment();
+                objectiveController.GetObjective(ObjectiveType.ObstacleCourse).Increment();
                 break;
             }
             case "Pin":
             {
-                ObjectiveController.Instance().GetObjective(ObjectiveType.Bowling).Increment();
+                objectiveController.GetObjective(ObjectiveType.Bowling).Increment();
                 break;
             }
         }
@@ -256,13 +259,13 @@ public class GolfBallController : MonoBehaviour
             case "MovieCamera":
                 body.AddForce((Camera.main.transform.position - transform.position) * 10f, ForceMode.Impulse);
                 Invoke("StopBall", 0.25f);
-                ObjectiveController.Instance().GetObjective(ObjectiveType.MovieCamera).Increment();
+                objectiveController.GetObjective(ObjectiveType.MovieCamera).Increment();
                 break;
             case "Spring":
                 Spring.SetActive(true);
                 springCollider.enabled = true;
                 Destroy(other.gameObject);
-                ObjectiveController.Instance().GetObjective(ObjectiveType.Spring).Increment();
+                objectiveController.GetObjective(ObjectiveType.Spring).Increment();
                 break;
             case "Slowmo":
                 Destroy(other.gameObject);
@@ -271,10 +274,10 @@ public class GolfBallController : MonoBehaviour
                 break;
             case "VRHeadset":
                 camController.IsThisVR();
-                ObjectiveController.Instance().GetObjective(ObjectiveType.VR).Increment();
+                objectiveController.GetObjective(ObjectiveType.VR).Increment();
                 break;
             case "MiddleOfDonut":
-                ObjectiveController.Instance().GetObjective(ObjectiveType.Donut).Increment();
+                objectiveController.GetObjective(ObjectiveType.Donut).Increment();
                 break;
         }
     }
