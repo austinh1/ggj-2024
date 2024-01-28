@@ -15,7 +15,7 @@ public class ObjectiveController : MonoBehaviour
 {
     private readonly Objective[] objectives = new Objective[]
     {
-        new(ObjectiveType.MaxSwing, "Swing for the moon! Achieve a full power swing 3 times.", 3),
+        new(ObjectiveType.MaxSwing, "Swing for the moon! Achieve a full power swing."),
         new(ObjectiveType.PressButton, "Find the Magical Button of Wonder that definitely won't harm you."),
         new(ObjectiveType.HitCar, "Driving golf balls is easy. Try driving a car."),
         new(ObjectiveType.ClimbMountain, "Make the long trek up a treacherous mountain."),
