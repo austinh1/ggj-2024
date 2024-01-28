@@ -5,8 +5,8 @@ public class CameraController : MonoBehaviour
     public Transform ball;
     public Transform camera;
     public float lerpToAnchorSpeed = .9f;
-    public float rotateSensitivity = 1f;
-    public float gamepadRotateSensitivity = 1f;
+    float rotateSensitivity = 1f;
+    float gamepadRotateSensitivity = 1f;
 
     public Camera cameraLeft;
     public Camera cameraRight;
