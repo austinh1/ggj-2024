@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2110866663568931345}
   - component: {fileID: 3852129197311674858}
   - component: {fileID: 3877716523923829755}
+  - component: {fileID: 5920729536221945636}
   m_Layer: 0
   m_Name: Fake Hole
   m_TagString: Hole
@@ -105,3 +106,18 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.75, y: 2.2, z: 0.75}
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+--- !u!114 &5920729536221945636
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4785396076572657181}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3fea9f286a0613459d5e0d983b60045, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectiveType: 1
+  progress: 1
+  repeatable: 0

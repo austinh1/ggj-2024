@@ -35,6 +35,9 @@ public class ButtonController : MonoBehaviour
             {
                 spawner.active = true;
             }
+
+            var buttonObjective = ObjectiveController.Instance().GetObjective(ObjectiveType.PressButton);
+            buttonObjective.Increment();
         }
     }
 }

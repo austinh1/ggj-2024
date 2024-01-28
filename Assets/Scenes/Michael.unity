@@ -176,6 +176,35 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.35684586, y: 0.553553, z: 0.11383133}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1001 &667214506
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1282075253942137502, guid: 8a38ab3e81baf714ca1ee3666a5647b6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1282075253942137502, guid: 8a38ab3e81baf714ca1ee3666a5647b6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1282075253942137502, guid: 8a38ab3e81baf714ca1ee3666a5647b6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4785396076572657181, guid: 8a38ab3e81baf714ca1ee3666a5647b6, type: 3}
+      propertyPath: m_Name
+      value: Fake Hole
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 8a38ab3e81baf714ca1ee3666a5647b6, type: 3}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -412,7 +441,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7681470440252452376, guid: 47739b9524506914b89dd96b0f0017c9, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.34
+      value: -6.53
       objectReference: {fileID: 0}
     - target: {fileID: 7681470440252452376, guid: 47739b9524506914b89dd96b0f0017c9, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1339,7 +1368,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8515164213356697065, guid: b8e9b21c5acd5374a8dbcdaf0333f86e, type: 3}
       propertyPath: m_Size.x
-      value: 250
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 8515164213356697065, guid: b8e9b21c5acd5374a8dbcdaf0333f86e, type: 3}
+      propertyPath: m_Size.z
+      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1363,3 +1396,4 @@ SceneRoots:
   - {fileID: 841749727}
   - {fileID: 1208682331}
   - {fileID: 8570008347510179445}
+  - {fileID: 667214506}

@@ -2,19 +2,26 @@ using System;
 using System.Collections;
 using System.Linq;
 using UnityEngine;
+public enum ObjectiveType
+{
+    PressButton,
+    EnterHole,
+    HitCar
+}
 
 public class ObjectiveController : MonoBehaviour
 {
     private readonly Objective[] objectives = new Objective[]
     {
+        new(ObjectiveType.EnterHole, "Make your way into the hole!"),
         new(ObjectiveType.PressButton, "Find the Magical Button of Wonder that definitely won't harm you."),
         new(ObjectiveType.HitCar, "Driving golf balls is easy. Try driving a car."),
-        new(ObjectiveType.EnterHole, "Make your way into the hole!"),
     };
     private int currentIndex = 0;
     private Objective currentObjective;
     private TMPro.TextMeshProUGUI textComponent;
     private Transform completionMarker;
+    private int prevProgress = 0;
 
     void Start()
     {
@@ -27,13 +34,38 @@ public class ObjectiveController : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (currentObjective.IsComplete && !completionMarker.gameObject.activeSelf)
+        if (currentObjective != null)
         {
-            // Show that the objective was complete and set a timer for when the next objective will display
-            completionMarker.gameObject.SetActive(true);
+            if (currentObjective.Quantity > prevProgress)
+            {
+                // Refresh the text when progress has been added
+                SetText();
+            }
 
-            StartCoroutine(DelayNextObjective(5));
+            if (currentObjective.IsComplete && !completionMarker.gameObject.activeSelf)
+            {
+                // Show that the objective was complete and set a timer for when the next objective will display
+                completionMarker.gameObject.SetActive(true);
+
+                StartCoroutine(DelayNextObjective(5));
+            }
+
+            prevProgress = currentObjective.CompletionCount;
         }
+    }
+
+    public static ObjectiveController Instance()
+    {
+        var controllers = GameObject.FindGameObjectsWithTag("GameController");
+        for (var i = 0; i < controllers.Length; i++)
+        {
+            var objectiveScript = controllers[i].GetComponent<ObjectiveController>();
+            if (objectiveScript != null)
+            {
+                return objectiveScript;
+            }
+        }
+        return null;
     }
 
     public Objective GetObjective(ObjectiveType type)
@@ -118,11 +150,4 @@ public class Objective
         IsComplete = true;
         CompletionCount = Quantity;
     }
-}
-
-public enum ObjectiveType
-{
-    PressButton,
-    EnterHole,
-    HitCar
 }
