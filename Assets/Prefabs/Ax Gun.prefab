@@ -70,6 +70,10 @@ MonoBehaviour:
   heightMultiplier: 0
   forwardMultiplier: 0.25
   sideOffset: 0.65
+  projectile: {fileID: 0}
+  speed: 20
+  fireRate: 1.5
+  upVelocity: 2
 --- !u!1001 &8230328002299122892
 PrefabInstance:
   m_ObjectHideFlags: 0
