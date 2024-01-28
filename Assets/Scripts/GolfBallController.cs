@@ -30,8 +30,11 @@ public class GolfBallController : MonoBehaviour
     private Collider springCollider;
     private float slowmoStartTime;
 
-    [SerializeField] bool stuck = false;
-    private float stuckWaitTime = 5f;
+    bool stuck;
+    private float stuckTimer;
+    private float stuckWaitTime = 3f;
+    private Vector3 lastPos;
+    
     public CameraController camController;
 
     void Start()
@@ -39,22 +42,15 @@ public class GolfBallController : MonoBehaviour
         UI = GameObject.FindWithTag("UI");
         lerpToScale = Vector3.one;
         springCollider = GetComponent<CapsuleCollider>();
+        
+        lastPos = transform.position;
     }
 
     void Update()
     {
         var grounded = Physics.Raycast(transform.position, Vector3.down, groundRaycastDistance);
 
-        if (!grounded)
-        {
-            if (!stuck)
-                StartCoroutine(GetUnstuck());
-        }
-        else
-        {
-            StopCoroutine(GetUnstuck());
-            stuck = false;
-        }
+        CheckIfStuck(grounded);
         
         if (Input.GetMouseButtonDown(0) || Input.GetButtonDown("Fire1"))
         {
@@ -102,6 +98,8 @@ public class GolfBallController : MonoBehaviour
         {
             Time.timeScale = 1f;
         }
+        
+        lastPos = transform.position;
     }
 
     private void FixedUpdate()
@@ -209,19 +207,26 @@ public class GolfBallController : MonoBehaviour
         body.velocity = Vector3.zero;
     }
 
-    IEnumerator GetUnstuck()
+    void CheckIfStuck(bool isGrounded)
     {
-        Vector3 position = transform.position;
+        Vector3 currentPos = transform.position;
         
-        for (int i = 0; i < stuckWaitTime; i++)
+        if (!isGrounded)
         {
-            yield return new WaitForSeconds(1f);
-            if (transform.position != position)
+            if ((currentPos - lastPos).magnitude == 0)
             {
-                stuck = false;
-                yield break;
+                stuckTimer += Time.deltaTime;
+                
+                if (stuckTimer > stuckWaitTime)
+                {
+                    stuck = true;
+                    stuckTimer = 0f;
+                }
+            }
+            else
+            {
+                stuckTimer = 0f;
             }
         }
-        stuck = true;
     }
 }
