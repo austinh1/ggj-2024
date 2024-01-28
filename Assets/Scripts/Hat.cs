@@ -9,6 +9,7 @@ public class Hat : MonoBehaviour
     public float heightMultiplier = 0.35f;
     public float forwardMultiplier = 0.25f;
     public float sideOffset = 0f;
+    public AudioSource audioClip;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -17,7 +18,11 @@ public class Hat : MonoBehaviour
             player = other.gameObject.GetComponent<HatWearer>().PutOnHat(this);
             playerBody = other.gameObject.GetComponent<Rigidbody>();
             equipped = true;
-            AudioManager.Instance().PlayAudioClip("hat - yeehaw");
+
+            if (audioClip != null)
+            {
+                audioClip.Play();
+            }
         }
     }
 
