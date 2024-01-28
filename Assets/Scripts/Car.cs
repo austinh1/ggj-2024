@@ -14,23 +14,18 @@ public class Car : MonoBehaviour
         forward = transform.forward;
     }
     
-    private void Update()
+    private void FixedUpdate()
     {
         if (truckin)
         {
-            body.AddForce(forward * 50f);
-            var vel = Mathf.Min(body.velocity.magnitude, 100f);
-            body.velocity = body.velocity.normalized * vel;
+            body.AddForce(forward.normalized * 50f, ForceMode.Acceleration);
             
             transform.forward =
                 Vector3.Lerp(transform.forward, forward, 20f * Time.deltaTime);
 
             foreach (var policeCar in policeCars)
             {
-                policeCar.AddForce((transform.position - policeCar.position).normalized * 40f); 
-                var policeVel = Mathf.Min(policeCar.velocity.magnitude, 100f);
-                policeCar.velocity = policeCar.velocity.normalized * policeVel;
-
+                policeCar.AddForce((transform.position - policeCar.position).normalized * 40f, ForceMode.Acceleration); 
                 policeCar.transform.forward =
                     Vector3.Lerp(transform.forward, policeCar.velocity.normalized, 20f * Time.deltaTime);
             }
