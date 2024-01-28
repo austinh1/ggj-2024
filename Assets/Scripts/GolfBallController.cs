@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 
 public class GolfBallController : MonoBehaviour
@@ -29,6 +30,9 @@ public class GolfBallController : MonoBehaviour
     private Collider springCollider;
     private float slowmoStartTime;
 
+    [SerializeField] bool stuck = false;
+    private float stuckWaitTime = 5f;
+
     void Start()
     {
         UI = GameObject.FindWithTag("UI");
@@ -39,6 +43,18 @@ public class GolfBallController : MonoBehaviour
     void Update()
     {
         var grounded = Physics.Raycast(transform.position, Vector3.down, groundRaycastDistance);
+
+        if (!grounded)
+        {
+            if (!stuck)
+                StartCoroutine(GetUnstuck());
+        }
+        else
+        {
+            StopCoroutine(GetUnstuck());
+            stuck = false;
+        }
+        
         if (Input.GetMouseButtonDown(0) || Input.GetButtonDown("Fire1"))
         {
             prepSwing = true;
@@ -48,10 +64,11 @@ public class GolfBallController : MonoBehaviour
         if (prepSwing && (Input.GetMouseButtonUp(0) || Input.GetButtonUp("Fire1")))
         {
             // Only allow hitting if the ball is currently grounded
-            if (grounded)
+            if (grounded || stuck)
             {
                 body.AddForce((anchor.forward + new Vector3(0, upwardVelocity * swingStrength, 0)) * (forwardVelocity * swingStrength), ForceMode.Impulse);
                 body.AddTorque(anchor.right * 10f, ForceMode.Impulse);
+                stuck = false;
             }
             else
             {
@@ -180,5 +197,21 @@ public class GolfBallController : MonoBehaviour
     void StopBall()
     {
         body.velocity = Vector3.zero;
+    }
+
+    IEnumerator GetUnstuck()
+    {
+        Vector3 position = transform.position;
+        
+        for (int i = 0; i < stuckWaitTime; i++)
+        {
+            yield return new WaitForSeconds(1f);
+            if (transform.position != position)
+            {
+                stuck = false;
+                yield break;
+            }
+        }
+        stuck = true;
     }
 }
