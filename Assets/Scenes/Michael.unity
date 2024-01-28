@@ -1196,18 +1196,6 @@ PrefabInstance:
       propertyPath: ballController
       value: 
       objectReference: {fileID: 1348831821}
-    - target: {fileID: 4299054003727369546, guid: b3455b4bf53b81341aa16bc91c63f5a5, type: 3}
-      propertyPath: rotateSpeed
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 4470647395841179480, guid: b3455b4bf53b81341aa16bc91c63f5a5, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6738514075616061260, guid: b3455b4bf53b81341aa16bc91c63f5a5, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -10
-      objectReference: {fileID: 0}
     - target: {fileID: 8086544057985066051, guid: b3455b4bf53b81341aa16bc91c63f5a5, type: 3}
       propertyPath: m_Name
       value: UI
