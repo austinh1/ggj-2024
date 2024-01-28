@@ -70,7 +70,8 @@ MonoBehaviour:
   heightMultiplier: 0
   forwardMultiplier: 0.25
   sideOffset: 0.65
-  projectile: {fileID: 0}
+  audioClip: {fileID: 0}
+  projectile: {fileID: 8156626800504509324, guid: bd5f5fa4b34921c419fabcae35f6a5ed, type: 3}
   speed: 20
   fireRate: 1.5
   upVelocity: 2
