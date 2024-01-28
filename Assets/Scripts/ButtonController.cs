@@ -29,6 +29,7 @@ public class ButtonController : MonoBehaviour
     {
         if (!pressed && other.tag == "Player")
         {
+            AudioManager.Instance().PlayAudioClip("pushpin - button");
             pressed = true;
             var spawner = GetComponent<Spawner>();
             if (spawner != null)
