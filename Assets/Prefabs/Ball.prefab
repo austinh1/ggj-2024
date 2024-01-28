@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 2249911350899575855}
   - component: {fileID: 9120179443538325907}
   - component: {fileID: 5103787081748851662}
+  - component: {fileID: -7229157976380643673}
   m_Layer: 0
   m_Name: Ball
   m_TagString: Player
@@ -152,5 +153,20 @@ MonoBehaviour:
   forwardVelocity: 12
   swingRate: 0.04
   groundRaycastDistance: 1.5
+  slowmoDuration: 10
   prepSwing: 0
   swingStrength: 0
+  Spring: {fileID: 0}
+  camController: {fileID: 0}
+--- !u!114 &-7229157976380643673
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2557499308631094746}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6318d05b2c1275409853b51f0e2336b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

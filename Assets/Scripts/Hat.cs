@@ -11,10 +11,10 @@ public class Hat : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Player") && !equipped)
         {
-            player = other.transform;
-            playerBody = player.GetComponent<Rigidbody>();
+            player = other.gameObject.GetComponent<HatWearer>().PutOnHat(this);
+            playerBody = other.gameObject.GetComponent<Rigidbody>();
             equipped = true;
         }
     }

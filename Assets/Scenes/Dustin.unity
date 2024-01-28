@@ -355,6 +355,63 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e6fe506f7bd1eaa469a923de25e626b0, type: 3}
+--- !u!1001 &298215266
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3450124451291841713, guid: ef8b748734bde8748b1e019311b08af4, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 14.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3450124451291841713, guid: ef8b748734bde8748b1e019311b08af4, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.0718349
+      objectReference: {fileID: 0}
+    - target: {fileID: 3450124451291841713, guid: ef8b748734bde8748b1e019311b08af4, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.76325667
+      objectReference: {fileID: 0}
+    - target: {fileID: 3450124451291841713, guid: ef8b748734bde8748b1e019311b08af4, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3450124451291841713, guid: ef8b748734bde8748b1e019311b08af4, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3450124451291841713, guid: ef8b748734bde8748b1e019311b08af4, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3450124451291841713, guid: ef8b748734bde8748b1e019311b08af4, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3450124451291841713, guid: ef8b748734bde8748b1e019311b08af4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3450124451291841713, guid: ef8b748734bde8748b1e019311b08af4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3450124451291841713, guid: ef8b748734bde8748b1e019311b08af4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3455732746599533961, guid: ef8b748734bde8748b1e019311b08af4, type: 3}
+      propertyPath: m_Name
+      value: SM_Chr_Attach_CowboyHat_01 Variant
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: ef8b748734bde8748b1e019311b08af4, type: 3}
 --- !u!1001 &526943712
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -487,6 +544,63 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.35684586, y: 0.553553, z: 0.11383133}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1001 &534779742
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3450124451291841713, guid: ef8b748734bde8748b1e019311b08af4, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 10.379999
+      objectReference: {fileID: 0}
+    - target: {fileID: 3450124451291841713, guid: ef8b748734bde8748b1e019311b08af4, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.0718349
+      objectReference: {fileID: 0}
+    - target: {fileID: 3450124451291841713, guid: ef8b748734bde8748b1e019311b08af4, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 2.267
+      objectReference: {fileID: 0}
+    - target: {fileID: 3450124451291841713, guid: ef8b748734bde8748b1e019311b08af4, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3450124451291841713, guid: ef8b748734bde8748b1e019311b08af4, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3450124451291841713, guid: ef8b748734bde8748b1e019311b08af4, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3450124451291841713, guid: ef8b748734bde8748b1e019311b08af4, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3450124451291841713, guid: ef8b748734bde8748b1e019311b08af4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3450124451291841713, guid: ef8b748734bde8748b1e019311b08af4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3450124451291841713, guid: ef8b748734bde8748b1e019311b08af4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3455732746599533961, guid: ef8b748734bde8748b1e019311b08af4, type: 3}
+      propertyPath: m_Name
+      value: SM_Chr_Attach_CowboyHat_01 Variant (7)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: ef8b748734bde8748b1e019311b08af4, type: 3}
 --- !u!1001 &661882542
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -844,6 +958,63 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0e5ac3ee7305d6d4a95b66c1e4557e6f, type: 3}
+--- !u!1001 &814255269
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3450124451291841713, guid: ef8b748734bde8748b1e019311b08af4, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 8.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3450124451291841713, guid: ef8b748734bde8748b1e019311b08af4, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.0718349
+      objectReference: {fileID: 0}
+    - target: {fileID: 3450124451291841713, guid: ef8b748734bde8748b1e019311b08af4, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 2.267
+      objectReference: {fileID: 0}
+    - target: {fileID: 3450124451291841713, guid: ef8b748734bde8748b1e019311b08af4, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3450124451291841713, guid: ef8b748734bde8748b1e019311b08af4, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3450124451291841713, guid: ef8b748734bde8748b1e019311b08af4, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3450124451291841713, guid: ef8b748734bde8748b1e019311b08af4, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3450124451291841713, guid: ef8b748734bde8748b1e019311b08af4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3450124451291841713, guid: ef8b748734bde8748b1e019311b08af4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3450124451291841713, guid: ef8b748734bde8748b1e019311b08af4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3455732746599533961, guid: ef8b748734bde8748b1e019311b08af4, type: 3}
+      propertyPath: m_Name
+      value: SM_Chr_Attach_CowboyHat_01 Variant (3)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: ef8b748734bde8748b1e019311b08af4, type: 3}
 --- !u!1001 &819336896
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1372,6 +1543,63 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 94dac7c4e5d8a7e44b2c93a46b8eff6d, type: 3}
+--- !u!1001 &1275662307
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3450124451291841713, guid: ef8b748734bde8748b1e019311b08af4, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 10.78
+      objectReference: {fileID: 0}
+    - target: {fileID: 3450124451291841713, guid: ef8b748734bde8748b1e019311b08af4, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.0718349
+      objectReference: {fileID: 0}
+    - target: {fileID: 3450124451291841713, guid: ef8b748734bde8748b1e019311b08af4, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.76325667
+      objectReference: {fileID: 0}
+    - target: {fileID: 3450124451291841713, guid: ef8b748734bde8748b1e019311b08af4, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3450124451291841713, guid: ef8b748734bde8748b1e019311b08af4, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3450124451291841713, guid: ef8b748734bde8748b1e019311b08af4, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3450124451291841713, guid: ef8b748734bde8748b1e019311b08af4, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3450124451291841713, guid: ef8b748734bde8748b1e019311b08af4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3450124451291841713, guid: ef8b748734bde8748b1e019311b08af4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3450124451291841713, guid: ef8b748734bde8748b1e019311b08af4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3455732746599533961, guid: ef8b748734bde8748b1e019311b08af4, type: 3}
+      propertyPath: m_Name
+      value: SM_Chr_Attach_CowboyHat_01 Variant (2)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: ef8b748734bde8748b1e019311b08af4, type: 3}
 --- !u!1001 &1349537149
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1486,6 +1714,120 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 47739b9524506914b89dd96b0f0017c9, type: 3}
+--- !u!1001 &1523469154
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3450124451291841713, guid: ef8b748734bde8748b1e019311b08af4, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 13.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 3450124451291841713, guid: ef8b748734bde8748b1e019311b08af4, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.0718349
+      objectReference: {fileID: 0}
+    - target: {fileID: 3450124451291841713, guid: ef8b748734bde8748b1e019311b08af4, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 7.91
+      objectReference: {fileID: 0}
+    - target: {fileID: 3450124451291841713, guid: ef8b748734bde8748b1e019311b08af4, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3450124451291841713, guid: ef8b748734bde8748b1e019311b08af4, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3450124451291841713, guid: ef8b748734bde8748b1e019311b08af4, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3450124451291841713, guid: ef8b748734bde8748b1e019311b08af4, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3450124451291841713, guid: ef8b748734bde8748b1e019311b08af4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3450124451291841713, guid: ef8b748734bde8748b1e019311b08af4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3450124451291841713, guid: ef8b748734bde8748b1e019311b08af4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3455732746599533961, guid: ef8b748734bde8748b1e019311b08af4, type: 3}
+      propertyPath: m_Name
+      value: SM_Chr_Attach_CowboyHat_01 Variant (1)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: ef8b748734bde8748b1e019311b08af4, type: 3}
+--- !u!1001 &1597360984
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3450124451291841713, guid: ef8b748734bde8748b1e019311b08af4, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 12.959999
+      objectReference: {fileID: 0}
+    - target: {fileID: 3450124451291841713, guid: ef8b748734bde8748b1e019311b08af4, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.0718349
+      objectReference: {fileID: 0}
+    - target: {fileID: 3450124451291841713, guid: ef8b748734bde8748b1e019311b08af4, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.76325667
+      objectReference: {fileID: 0}
+    - target: {fileID: 3450124451291841713, guid: ef8b748734bde8748b1e019311b08af4, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3450124451291841713, guid: ef8b748734bde8748b1e019311b08af4, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3450124451291841713, guid: ef8b748734bde8748b1e019311b08af4, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3450124451291841713, guid: ef8b748734bde8748b1e019311b08af4, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3450124451291841713, guid: ef8b748734bde8748b1e019311b08af4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3450124451291841713, guid: ef8b748734bde8748b1e019311b08af4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3450124451291841713, guid: ef8b748734bde8748b1e019311b08af4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3455732746599533961, guid: ef8b748734bde8748b1e019311b08af4, type: 3}
+      propertyPath: m_Name
+      value: SM_Chr_Attach_CowboyHat_01 Variant (6)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: ef8b748734bde8748b1e019311b08af4, type: 3}
 --- !u!1001 &1614685580
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1657,6 +1999,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2557499308631094746, guid: 2846ac250d1be4f4889e3a93adf6376e, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1625182024}
+    - targetCorrespondingSourceObject: {fileID: 2557499308631094746, guid: 2846ac250d1be4f4889e3a93adf6376e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1625182026}
   m_SourcePrefab: {fileID: 100100000, guid: 2846ac250d1be4f4889e3a93adf6376e, type: 3}
 --- !u!114 &1625182018 stripped
 MonoBehaviour:
@@ -1702,6 +2047,18 @@ CapsuleCollider:
   m_Height: 1.9102782
   m_Direction: 1
   m_Center: {x: 0, y: 0.47, z: 0}
+--- !u!114 &1625182026
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 688944059}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6318d05b2c1275409853b51f0e2336b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1722515541
 GameObject:
   m_ObjectHideFlags: 0
@@ -2096,6 +2453,63 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b0fcc14b6f7a2b94394dc718c2b8d094, type: 3}
+--- !u!1001 &2076968352
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3450124451291841713, guid: ef8b748734bde8748b1e019311b08af4, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 16.88
+      objectReference: {fileID: 0}
+    - target: {fileID: 3450124451291841713, guid: ef8b748734bde8748b1e019311b08af4, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.0718349
+      objectReference: {fileID: 0}
+    - target: {fileID: 3450124451291841713, guid: ef8b748734bde8748b1e019311b08af4, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.76325667
+      objectReference: {fileID: 0}
+    - target: {fileID: 3450124451291841713, guid: ef8b748734bde8748b1e019311b08af4, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3450124451291841713, guid: ef8b748734bde8748b1e019311b08af4, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3450124451291841713, guid: ef8b748734bde8748b1e019311b08af4, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3450124451291841713, guid: ef8b748734bde8748b1e019311b08af4, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3450124451291841713, guid: ef8b748734bde8748b1e019311b08af4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3450124451291841713, guid: ef8b748734bde8748b1e019311b08af4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3450124451291841713, guid: ef8b748734bde8748b1e019311b08af4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3455732746599533961, guid: ef8b748734bde8748b1e019311b08af4, type: 3}
+      propertyPath: m_Name
+      value: SM_Chr_Attach_CowboyHat_01 Variant (4)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: ef8b748734bde8748b1e019311b08af4, type: 3}
 --- !u!1001 &2093103241
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2228,6 +2642,63 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!1001 &2138442848
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3450124451291841713, guid: ef8b748734bde8748b1e019311b08af4, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 15.209999
+      objectReference: {fileID: 0}
+    - target: {fileID: 3450124451291841713, guid: ef8b748734bde8748b1e019311b08af4, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.0718349
+      objectReference: {fileID: 0}
+    - target: {fileID: 3450124451291841713, guid: ef8b748734bde8748b1e019311b08af4, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 7.91
+      objectReference: {fileID: 0}
+    - target: {fileID: 3450124451291841713, guid: ef8b748734bde8748b1e019311b08af4, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3450124451291841713, guid: ef8b748734bde8748b1e019311b08af4, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3450124451291841713, guid: ef8b748734bde8748b1e019311b08af4, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3450124451291841713, guid: ef8b748734bde8748b1e019311b08af4, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3450124451291841713, guid: ef8b748734bde8748b1e019311b08af4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3450124451291841713, guid: ef8b748734bde8748b1e019311b08af4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3450124451291841713, guid: ef8b748734bde8748b1e019311b08af4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3455732746599533961, guid: ef8b748734bde8748b1e019311b08af4, type: 3}
+      propertyPath: m_Name
+      value: SM_Chr_Attach_CowboyHat_01 Variant (5)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: ef8b748734bde8748b1e019311b08af4, type: 3}
 --- !u!1001 &2146930192
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2325,3 +2796,11 @@ SceneRoots:
   - {fileID: 919009498}
   - {fileID: 1045675122}
   - {fileID: 1797921893}
+  - {fileID: 298215266}
+  - {fileID: 2076968352}
+  - {fileID: 1523469154}
+  - {fileID: 2138442848}
+  - {fileID: 1275662307}
+  - {fileID: 1597360984}
+  - {fileID: 814255269}
+  - {fileID: 534779742}
