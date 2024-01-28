@@ -50,6 +50,7 @@ public class Car : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
+            AudioManager.Instance().PlayAudioClip("police - whoop");
             truckin = true;
 
             foreach (var policeCar in policeCars)

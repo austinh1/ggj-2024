@@ -71,7 +71,7 @@ public class ObjectiveController : MonoBehaviour
             var objective = GetObjective(ot);
             SetText(objective);
             SetCompletionText(objective.CompletionPlayerText);
-            audioManager.PlayAudioClip("objective - applause");
+            audioManager.PlayAudioClip("objective completed");
             
             if (!completionMarker.gameObject.activeSelf)
             {
