@@ -51,14 +51,16 @@ public class ObjectiveController : MonoBehaviour
         new(ObjectiveType.MovieCamera, "There should be a movie camera around here some where... let's make a movie!", "JUMP SCARE!"),
         new(ObjectiveType.Spring, "Wonder if you could bounce higher with spring attached... let's find out."),
     };
-    private Objective currentObjective;
+    public Objective currentObjective { get; private set; }
     private TMPro.TextMeshProUGUI textComponent;
     private Transform completionMarker;
+    private AudioManager audioManager;
 
     public UnityEvent<ObjectiveType> onObjectiveCompleted = new();
 
     void Start()
     {
+        audioManager = AudioManager.Instance();
         currentObjective = GetNextObjective();
         textComponent = GetComponent<TMPro.TextMeshProUGUI>();
         completionMarker = transform.Find("CompletionMark");
@@ -67,6 +69,7 @@ public class ObjectiveController : MonoBehaviour
             var objective = GetObjective(ot);
             SetText(objective);
             SetCompletionText(objective.CompletionPlayerText);
+            audioManager.PlayAudioClip("objective - applause");
             
             if (!completionMarker.gameObject.activeSelf)
             {
@@ -133,6 +136,7 @@ public class ObjectiveController : MonoBehaviour
         else
         {
             newText = "You have completed all the objectives. Well done!";
+            audioManager.PlayAudioClip("objective - all completed");
         }
 
         if (textComponent != null)
@@ -175,7 +179,12 @@ public class Objective
         }
         else
         {
-            ObjectiveController.Instance().SetText(this);
+            // Update the text when the quantity of the current objective is updated
+            var controller = ObjectiveController.Instance();
+            if (controller.currentObjective == this)
+            {
+                ObjectiveController.Instance().SetText(this);
+            }
         }
     }
 

@@ -43,6 +43,7 @@ public class GolfBallController : MonoBehaviour
 
     public CameraController camController;
     private ObjectiveController objectiveController;
+    private AudioManager audioManager;
 
     void Start()
     {
@@ -55,6 +56,7 @@ public class GolfBallController : MonoBehaviour
         startPosition = position;
 
         objectiveController = ObjectiveController.Instance();
+        audioManager = AudioManager.Instance();
     }
 
     void Update()
@@ -217,15 +219,20 @@ public class GolfBallController : MonoBehaviour
                 body.drag = 2f;
                 body.angularDrag = 30;
                 objectiveController.GetObjective(ObjectiveType.StickyPizza).Increment();
+                audioManager.PlayAudioClip("pizza - landing on");
                 break;
             case "Trophy":
             {
                 objectiveController.GetObjective(ObjectiveType.ObstacleCourse).Increment();
+                string[] sfxOptions = { "trophy - clang 1", "trophy - clang 2" };
+                var choice = UnityEngine.Random.Range(0, sfxOptions.Length);
+                audioManager.PlayAudioClip(sfxOptions[choice]);
                 break;
             }
             case "Pin":
             {
                 objectiveController.GetObjective(ObjectiveType.Bowling).Increment();
+                audioManager.PlayAudioClip("bowling pin");
                 break;
             }
         }
@@ -248,6 +255,7 @@ public class GolfBallController : MonoBehaviour
         {
             case "Hole":
                 body.AddForce(Vector3.up * 10f, ForceMode.Impulse);
+                audioManager.PlayAudioClip("hole - gotcha");
                 break;
             case "Food":
                 isBige = true;
@@ -255,6 +263,7 @@ public class GolfBallController : MonoBehaviour
                 body.mass *= 1.25f;
                 groundRaycastDistance *= 1.5f;
                 Destroy(other.gameObject);
+                audioManager.PlayAudioClip("taco - crunch");
                 break;
             case "MovieCamera":
                 body.AddForce((Camera.main.transform.position - transform.position) * 10f, ForceMode.Impulse);
@@ -278,7 +287,7 @@ public class GolfBallController : MonoBehaviour
                 break;
             case "MiddleOfDonut":
                 objectiveController.GetObjective(ObjectiveType.Donut).Increment();
-                AudioManager.Instance().PlayAudioClip("donut - thunk");
+                audioManager.PlayAudioClip("donut - thunk");
                 break;
         }
     }
