@@ -9,6 +9,7 @@ TagManager:
   - Hole
   - Food
   - Sticky
+  - Slowmo
   layers:
   - Default
   - TransparentFX

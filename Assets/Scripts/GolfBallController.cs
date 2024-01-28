@@ -162,6 +162,8 @@ public class GolfBallController : MonoBehaviour
                 springCollider.enabled = true;
                 other.gameObject.SetActive(false);
                 break;
+            case "Slowmo":
+                break;
         }
     }
 
