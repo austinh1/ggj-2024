@@ -63,7 +63,7 @@ public class GolfBallController : MonoBehaviour
             // Only allow hitting if the ball is currently grounded
             if (grounded || stuck)
             {
-                body.AddForce((anchor.forward + new Vector3(0, upwardVelocity * swingStrength, 0)) * (forwardVelocity * swingStrength), ForceMode.Impulse);
+                body.AddForce((anchor.forward + new Vector3(0, upwardVelocity * swingStrength * (springCollider.enabled ? 1.5f : 1f), 0)) * (forwardVelocity * swingStrength), ForceMode.Impulse);
                 body.AddTorque(anchor.right * 10f, ForceMode.Impulse);
                 stuck = false;
 
@@ -211,6 +211,7 @@ public class GolfBallController : MonoBehaviour
                 Spring.SetActive(true);
                 springCollider.enabled = true;
                 Destroy(other.gameObject);
+                ObjectiveController.Instance().GetObjective(ObjectiveType.Spring).Increment();
                 break;
             case "Slowmo":
                 Destroy(other.gameObject);

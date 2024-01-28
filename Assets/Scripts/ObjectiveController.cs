@@ -25,6 +25,7 @@ public enum ObjectiveType
     Fore,
     MovieCamera,
     VR,
+    Spring,
 }
 
 public class ObjectiveController : MonoBehaviour
@@ -48,7 +49,7 @@ public class ObjectiveController : MonoBehaviour
         new(ObjectiveType.DumpsterFire, "Start a dumpster fire for the heck of it.", "Honestly? Kinda toasty in here, I like it."),
         new(ObjectiveType.Orangatang, "Gaze in the upward direction, I dare you.", "AAAHH he's been up there the whole time?!"),
         new(ObjectiveType.MovieCamera, "There should be a movie camera around here some where... let's make a movie!", "JUMP SCARE!"),
-        new(ObjectiveType.VR, "VR is the future, and the future is now.", "Is this VR?"),
+        new(ObjectiveType.Spring, "Wonder if you could bounce higher with spring attached... let's find out."),
     };
     private Objective currentObjective;
     private TMPro.TextMeshProUGUI textComponent;
