@@ -89,6 +89,21 @@ public class GolfBallController : MonoBehaviour
                 {
                     objectiveController.GetObjective(ObjectiveType.MaxSwing).Increment();
                 }
+
+                if (swingStrength >= 0.9f)
+                {
+                    audioManager.PlayAudioClip("move - big hit");
+                }
+                else if (swingStrength >= 0.4f)
+                {
+                    audioManager.PlayAudioClip("move - medium hit");
+                }
+                else
+                {
+                    string[] sfxOptions = { "move - small hit 1", "move - small hit 2" };
+                    var choice = UnityEngine.Random.Range(0, sfxOptions.Length);
+                    audioManager.PlayAudioClip(sfxOptions[choice]);
+                }
             }
             else
             {
@@ -279,6 +294,7 @@ public class GolfBallController : MonoBehaviour
                 body.AddForce((Camera.main.transform.position - transform.position) * 10f, ForceMode.Impulse);
                 Invoke("StopBall", 0.25f);
                 objectiveController.GetObjective(ObjectiveType.MovieCamera).Increment();
+                audioManager.PlayAudioClip("camera - breaking glass");
                 break;
             case "Spring":
                 Spring.SetActive(true);
