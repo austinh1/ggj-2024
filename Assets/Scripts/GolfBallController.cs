@@ -15,6 +15,8 @@ public class GolfBallController : MonoBehaviour
     public float resetHoldDuration = 10f;
     public GameObject explosionPrefab;
     public MeshRenderer meshRenderer;
+    public Camera cameraLeft;
+    public Camera cameraRight;
 
     [HideInInspector]
     public bool prepSwing = false;
@@ -87,6 +89,21 @@ public class GolfBallController : MonoBehaviour
                 {
                     objectiveController.GetObjective(ObjectiveType.MaxSwing).Increment();
                 }
+
+                if (swingStrength >= 0.9f)
+                {
+                    audioManager.PlayAudioClip("move - big hit");
+                }
+                else if (swingStrength >= 0.4f)
+                {
+                    audioManager.PlayAudioClip("move - medium hit");
+                }
+                else
+                {
+                    string[] sfxOptions = { "move - small hit 1", "move - small hit 2" };
+                    var choice = UnityEngine.Random.Range(0, sfxOptions.Length);
+                    audioManager.PlayAudioClip(sfxOptions[choice]);
+                }
             }
             else
             {
@@ -140,6 +157,8 @@ public class GolfBallController : MonoBehaviour
                 transform.localScale = Vector3.one;
                 Time.timeScale = 1f;
                 body.drag = 0f;
+                cameraLeft.rect = new Rect(0, 0, 1f, 1);
+                cameraRight.gameObject.SetActive(false);
 
                 foreach (var hat in GetComponent<HatWearer>().hats)
                 {
@@ -275,6 +294,7 @@ public class GolfBallController : MonoBehaviour
                 body.AddForce((Camera.main.transform.position - transform.position) * 10f, ForceMode.Impulse);
                 Invoke("StopBall", 0.25f);
                 objectiveController.GetObjective(ObjectiveType.MovieCamera).Increment();
+                audioManager.PlayAudioClip("camera - breaking glass");
                 break;
             case "Spring":
                 Spring.SetActive(true);
@@ -287,6 +307,7 @@ public class GolfBallController : MonoBehaviour
                 Destroy(other.gameObject);
                 slowmoStartTime = Time.time;
                 Time.timeScale = .5f;
+                objectiveController.GetObjective(ObjectiveType.Slowmo).Increment();
                 break;
             case "VRHeadset":
                 camController.IsThisVR();

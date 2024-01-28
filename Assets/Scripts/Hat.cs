@@ -4,11 +4,12 @@ using UnityEngine;
 public class Hat : MonoBehaviour
 {
     private Transform player;
-    private bool equipped = false;
+    protected bool equipped = false;
     private Rigidbody playerBody;
     public float heightMultiplier = 0.35f;
     public float forwardMultiplier = 0.25f;
     public float sideOffset = 0f;
+    public AudioSource audioClip;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -17,7 +18,11 @@ public class Hat : MonoBehaviour
             player = other.gameObject.GetComponent<HatWearer>().PutOnHat(this);
             playerBody = other.gameObject.GetComponent<Rigidbody>();
             equipped = true;
-            AudioManager.Instance().PlayAudioClip("hat - yeehaw");
+
+            if (audioClip != null)
+            {
+                audioClip.Play();
+            }
         }
     }
 

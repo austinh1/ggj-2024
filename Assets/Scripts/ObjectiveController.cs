@@ -26,6 +26,7 @@ public enum ObjectiveType
     MovieCamera,
     VR,
     Spring,
+    Slowmo
 }
 
 public class ObjectiveController : MonoBehaviour
@@ -51,6 +52,7 @@ public class ObjectiveController : MonoBehaviour
         new(ObjectiveType.MovieCamera, "Lights, Camera...!", "AACK"),
         new(ObjectiveType.VR, "Ride the ~waave~ of the future", "I can see two of my houses from here!"),
         new(ObjectiveType.Spring, "Spring will sprung", "it rides up a little"),
+        new(ObjectiveType.Slowmo, "Goin slow", "mo"),
     };
     
     public Objective currentObjective { get; private set; }
