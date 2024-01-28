@@ -129,6 +129,7 @@ public class GolfBallController : MonoBehaviour
             if (gameObject.activeSelf && rightClickHoldTime >= resetHoldDuration)
             {
                 Instantiate(explosionPrefab, transform.position, Quaternion.identity);
+                audioManager.PlayAudioClip("reset - explosion");
 
                 rightClickHoldTime = 0;
                 meshRenderer.enabled = false;
@@ -223,7 +224,12 @@ public class GolfBallController : MonoBehaviour
                 break;
             case "Trophy":
             {
-                objectiveController.GetObjective(ObjectiveType.ObstacleCourse).Increment();
+                var trophyObjective = objectiveController.GetObjective(ObjectiveType.ObstacleCourse);
+                if (!trophyObjective.IsComplete)
+                {
+                    trophyObjective.Increment();
+                    audioManager.PlayAudioClip("objective-Trophy");
+                }
                 string[] sfxOptions = { "trophy - clang 1", "trophy - clang 2" };
                 var choice = UnityEngine.Random.Range(0, sfxOptions.Length);
                 audioManager.PlayAudioClip(sfxOptions[choice]);
@@ -275,6 +281,7 @@ public class GolfBallController : MonoBehaviour
                 springCollider.enabled = true;
                 Destroy(other.gameObject);
                 objectiveController.GetObjective(ObjectiveType.Spring).Increment();
+                audioManager.PlayAudioClip("spring - boing");
                 break;
             case "Slowmo":
                 Destroy(other.gameObject);
@@ -284,6 +291,7 @@ public class GolfBallController : MonoBehaviour
             case "VRHeadset":
                 camController.IsThisVR();
                 objectiveController.GetObjective(ObjectiveType.VR).Increment();
+                audioManager.PlayAudioClip("vr");
                 break;
             case "MiddleOfDonut":
                 objectiveController.GetObjective(ObjectiveType.Donut).Increment();
