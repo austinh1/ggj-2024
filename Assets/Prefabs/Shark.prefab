@@ -532,6 +532,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5260780580678680531}
   - component: {fileID: 4548703509667890587}
+  - component: {fileID: 2088580756563724520}
   m_Layer: 0
   m_Name: Shark
   m_TagString: Untagged
@@ -579,6 +580,20 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 0}
+--- !u!114 &2088580756563724520
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3105292038213511022}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29f8e9df356220641beacf662485c69f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  heightMultiplier: 0.35
+  forwardMultiplier: 0.25
 --- !u!1 &4002412940117462079
 GameObject:
   m_ObjectHideFlags: 0
