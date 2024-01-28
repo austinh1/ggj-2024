@@ -18,6 +18,7 @@ TagManager:
   - FireHydrant
   - MiddleOfDonut
   - DumpsterFire
+  - SpeechBubble
   layers:
   - Default
   - TransparentFX

@@ -26,8 +26,6 @@ public enum ObjectiveType
 
 public class ObjectiveController : MonoBehaviour
 {
-    public TMP_Text playerText;
-    
     private readonly Objective[] objectives = new Objective[]
     {
         new(ObjectiveType.Dominoes, "Knock over some dominoes!", "Bet that fridge had some tasty stuff in it."),
@@ -36,13 +34,13 @@ public class ObjectiveController : MonoBehaviour
         new(ObjectiveType.Bowling, "Strike! Smack some pins around and pretend you're a bowling ball."),
         new(ObjectiveType.ObstacleCourse, "Show me your skillz by collecting the trophy at the top of the tower!"),
         new(ObjectiveType.FireHydrant, "Become a firefighter by using all of the fire hydrants.", "", 7),
-        new(ObjectiveType.MaxSwing, "Swing for the moon! Achieve a full power swing."),
+        new(ObjectiveType.MaxSwing, "Swing for the moon! Achieve a full power swing.", "Didn't quite make it, but I'll get there next time."),
         new(ObjectiveType.RightClickToBrake, "Cool it there hot shot. Press right click to slow yourself down!", "Don't make me turn this golf ball around!"),
         new(ObjectiveType.PressButton, "Find the Magical Button of Wonder that definitely won't harm you."),
-        new(ObjectiveType.HitCar, "Driving golf balls is easy. Try driving a car."),
+        new(ObjectiveType.HitCar, "Driving golf balls is easy. Try driving a car.", "Gotta go fast, I guess."),
         new(ObjectiveType.ClimbMountain, "Make the long trek up a treacherous mountain."),
         new(ObjectiveType.EnterHole, "Make your way into the hole!"),
-        new(ObjectiveType.PumpkinForest, "Travel into the mystical pumpkin forest, but beware of what you find..."),
+        new(ObjectiveType.PumpkinForest, "Travel into the mystical pumpkin forest, but beware of what you find...", "Why hello, Mr. Skull. We meet again."),
         new(ObjectiveType.DumpsterFire, "Start a dumpster fire for the heck of it.", "Honestly? Kinda toasty in here, I like it."),
         new(ObjectiveType.Orangatang, "Gaze in the upward direction, I dare you.", "AAAHH he's been up there the whole time?!"),
     };
@@ -77,14 +75,7 @@ public class ObjectiveController : MonoBehaviour
 
     private void SetCompletionText(string objectiveCompletionPlayerText)
     {
-        playerText.text = objectiveCompletionPlayerText;
-        StartCoroutine(ClearCompletionTextAfterDelay(3f));
-    }
-
-    private IEnumerator ClearCompletionTextAfterDelay(float delay)
-    {
-        yield return new WaitForSeconds(delay);
-        playerText.text = string.Empty;
+        SpeechBubble.Instance().SetText(objectiveCompletionPlayerText);
     }
 
     private Objective GetNextObjective()

@@ -35,7 +35,6 @@ public class CameraController : MonoBehaviour
         var newAngles = transform.eulerAngles + new Vector3(-xRotation, yRotation, 0);
         transform.eulerAngles = newAngles;
         
-        Debug.Log(newAngles);
         var orangatangAngle = new Vector3(299.72f, 84.95f, 0f);
         if (Vector3.Distance(newAngles, orangatangAngle) < 20f)
         {
