@@ -10,6 +10,7 @@ public class GolfBallController : MonoBehaviour
     [Range(0.01f, 0.1f)]
     public float swingRate = 0.01f;
     public float groundRaycastDistance = 1f;
+    public float slowmoDuration = 10f;
 
     [HideInInspector]
     public bool prepSwing = false;
@@ -26,6 +27,7 @@ public class GolfBallController : MonoBehaviour
 
     public GameObject Spring;
     private Collider springCollider;
+    private float slowmoStartTime;
 
     void Start()
     {
@@ -71,6 +73,11 @@ public class GolfBallController : MonoBehaviour
         else if (Input.GetButtonUp("Jump"))
         {
             body.drag = 0;
+        }
+
+        if (Time.time - slowmoStartTime >= slowmoDuration && Time.timeScale < 1f)
+        {
+            Time.timeScale = 1f;
         }
     }
 
@@ -163,6 +170,9 @@ public class GolfBallController : MonoBehaviour
                 other.gameObject.SetActive(false);
                 break;
             case "Slowmo":
+                Destroy(other.gameObject);
+                slowmoStartTime = Time.time;
+                Time.timeScale = .5f;
                 break;
         }
     }
