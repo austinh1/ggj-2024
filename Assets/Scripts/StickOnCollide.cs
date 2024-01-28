@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class StickOnCollide : MonoBehaviour
 {
+    public AudioSource onCollideClip;
+
     private Rigidbody rigid;
     private Collider collide;
 
@@ -15,6 +17,11 @@ public class StickOnCollide : MonoBehaviour
     {
         if (rigid != null && !rigid.isKinematic)
         {
+            if (onCollideClip != null)
+            {
+                onCollideClip.Play();
+            }
+
             rigid.velocity = Vector3.zero;
             rigid.useGravity = false;
             rigid.isKinematic = true;

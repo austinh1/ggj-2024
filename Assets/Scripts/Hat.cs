@@ -17,6 +17,7 @@ public class Hat : MonoBehaviour
             player = other.gameObject.GetComponent<HatWearer>().PutOnHat(this);
             playerBody = other.gameObject.GetComponent<Rigidbody>();
             equipped = true;
+            AudioManager.Instance().PlayAudioClip("hat - yeehaw");
         }
     }
 

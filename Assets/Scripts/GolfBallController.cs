@@ -15,6 +15,8 @@ public class GolfBallController : MonoBehaviour
     public float resetHoldDuration = 10f;
     public GameObject explosionPrefab;
     public MeshRenderer meshRenderer;
+    public Camera cameraLeft;
+    public Camera cameraRight;
 
     [HideInInspector]
     public bool prepSwing = false;
@@ -43,6 +45,7 @@ public class GolfBallController : MonoBehaviour
 
     public CameraController camController;
     private ObjectiveController objectiveController;
+    private AudioManager audioManager;
 
     void Start()
     {
@@ -55,6 +58,7 @@ public class GolfBallController : MonoBehaviour
         startPosition = position;
 
         objectiveController = ObjectiveController.Instance();
+        audioManager = AudioManager.Instance();
     }
 
     void Update()
@@ -84,6 +88,21 @@ public class GolfBallController : MonoBehaviour
                 if (swingStrength == 1f)
                 {
                     objectiveController.GetObjective(ObjectiveType.MaxSwing).Increment();
+                }
+
+                if (swingStrength >= 0.9f)
+                {
+                    audioManager.PlayAudioClip("move - big hit");
+                }
+                else if (swingStrength >= 0.4f)
+                {
+                    audioManager.PlayAudioClip("move - medium hit");
+                }
+                else
+                {
+                    string[] sfxOptions = { "move - small hit 1", "move - small hit 2" };
+                    var choice = UnityEngine.Random.Range(0, sfxOptions.Length);
+                    audioManager.PlayAudioClip(sfxOptions[choice]);
                 }
             }
             else
@@ -127,6 +146,7 @@ public class GolfBallController : MonoBehaviour
             if (gameObject.activeSelf && rightClickHoldTime >= resetHoldDuration)
             {
                 Instantiate(explosionPrefab, transform.position, Quaternion.identity);
+                audioManager.PlayAudioClip("reset - explosion");
 
                 rightClickHoldTime = 0;
                 meshRenderer.enabled = false;
@@ -137,6 +157,8 @@ public class GolfBallController : MonoBehaviour
                 transform.localScale = Vector3.one;
                 Time.timeScale = 1f;
                 body.drag = 0f;
+                cameraLeft.rect = new Rect(0, 0, 1f, 1);
+                cameraRight.gameObject.SetActive(false);
 
                 foreach (var hat in GetComponent<HatWearer>().hats)
                 {
@@ -217,15 +239,25 @@ public class GolfBallController : MonoBehaviour
                 body.drag = 2f;
                 body.angularDrag = 30;
                 objectiveController.GetObjective(ObjectiveType.StickyPizza).Increment();
+                audioManager.PlayAudioClip("pizza - landing on");
                 break;
             case "Trophy":
             {
-                objectiveController.GetObjective(ObjectiveType.ObstacleCourse).Increment();
+                var trophyObjective = objectiveController.GetObjective(ObjectiveType.ObstacleCourse);
+                if (!trophyObjective.IsComplete)
+                {
+                    trophyObjective.Increment();
+                    audioManager.PlayAudioClip("objective-Trophy");
+                }
+                string[] sfxOptions = { "trophy - clang 1", "trophy - clang 2" };
+                var choice = UnityEngine.Random.Range(0, sfxOptions.Length);
+                audioManager.PlayAudioClip(sfxOptions[choice]);
                 break;
             }
             case "Pin":
             {
                 objectiveController.GetObjective(ObjectiveType.Bowling).Increment();
+                audioManager.PlayAudioClip("bowling pin");
                 break;
             }
         }
@@ -248,6 +280,7 @@ public class GolfBallController : MonoBehaviour
         {
             case "Hole":
                 body.AddForce(Vector3.up * 10f, ForceMode.Impulse);
+                audioManager.PlayAudioClip("hole - gotcha");
                 break;
             case "Food":
                 isBige = true;
@@ -255,30 +288,35 @@ public class GolfBallController : MonoBehaviour
                 body.mass *= 1.25f;
                 groundRaycastDistance *= 1.5f;
                 Destroy(other.gameObject);
+                audioManager.PlayAudioClip("taco - crunch");
                 break;
             case "MovieCamera":
                 body.AddForce((Camera.main.transform.position - transform.position) * 10f, ForceMode.Impulse);
                 Invoke("StopBall", 0.25f);
                 objectiveController.GetObjective(ObjectiveType.MovieCamera).Increment();
+                audioManager.PlayAudioClip("camera - breaking glass");
                 break;
             case "Spring":
                 Spring.SetActive(true);
                 springCollider.enabled = true;
                 Destroy(other.gameObject);
                 objectiveController.GetObjective(ObjectiveType.Spring).Increment();
+                audioManager.PlayAudioClip("spring - boing");
                 break;
             case "Slowmo":
                 Destroy(other.gameObject);
                 slowmoStartTime = Time.time;
                 Time.timeScale = .5f;
+                objectiveController.GetObjective(ObjectiveType.Slowmo).Increment();
                 break;
             case "VRHeadset":
                 camController.IsThisVR();
                 objectiveController.GetObjective(ObjectiveType.VR).Increment();
+                audioManager.PlayAudioClip("vr");
                 break;
             case "MiddleOfDonut":
                 objectiveController.GetObjective(ObjectiveType.Donut).Increment();
-                AudioManager.Instance().PlayAudioClip("donut - thunk");
+                audioManager.PlayAudioClip("donut - thunk");
                 break;
         }
     }

@@ -38,7 +38,12 @@ public class CameraController : MonoBehaviour
         var orangatangAngle = new Vector3(299.72f, 84.95f, 0f);
         if (Vector3.Distance(newAngles, orangatangAngle) < 20f)
         {
-            ObjectiveController.Instance().GetObjective(ObjectiveType.Orangatang).Increment();
+            var orangObjective = ObjectiveController.Instance().GetObjective(ObjectiveType.Orangatang);
+            if (!orangObjective.IsComplete)
+            {
+                orangObjective.Increment();
+                AudioManager.Instance().PlayAudioClip("orangutan");
+            }
         }
     }
     

@@ -26,40 +26,45 @@ public enum ObjectiveType
     MovieCamera,
     VR,
     Spring,
+    Slowmo
 }
 
 public class ObjectiveController : MonoBehaviour
 {
     private readonly Objective[] objectives = new Objective[]
     {
-        new(ObjectiveType.Fore, "Swing yer club and hit the golf ball!", "FORE! Oh wait, didn't go very far did I?"),
-        new(ObjectiveType.MaxSwing, "Swing for the moon! Achieve a full power swing.", "Didn't quite make it, but I'll get there next time."),
-        new(ObjectiveType.Bowling, "Strike! Smack some pins around and pretend you're a bowling ball."),
-        new(ObjectiveType.StickyPizza, "Pizza time!", "A dish best served cold, in my opinion."),
-        new(ObjectiveType.PressButton, "Find the Magical Button of Wonder that definitely won't harm you."),
-        new(ObjectiveType.ClimbMountain, "Make the long trek up a treacherous mountain."),
-        new(ObjectiveType.Dominoes, "Knock over some dominoes!", "Bet that fridge had some tasty stuff in it."),
-        new(ObjectiveType.Donut, "Time to grab a snack! Where's that donut again?"),
-        new(ObjectiveType.ObstacleCourse, "Show me your skillz by collecting the trophy at the top of the tower!"),
-        new(ObjectiveType.FireHydrant, "Become a firefighter by using all of the fire hydrants.", "", 7),
-        new(ObjectiveType.RightClickToBrake, "Cool it there hot shot. Press right click to slow yourself down!", "Don't make me turn this golf ball around!"),
-        new(ObjectiveType.HitCar, "Driving golf balls is easy. Try driving a car.", "Gotta go fast, I guess."),
-        new(ObjectiveType.EnterHole, "Make your way into the hole!"),
-        new(ObjectiveType.PumpkinForest, "Travel into the mystical pumpkin forest, but beware of what you find...", "Why hello, Mr. Skull. We meet again."),
-        new(ObjectiveType.DumpsterFire, "Start a dumpster fire for the heck of it.", "Honestly? Kinda toasty in here, I like it."),
-        new(ObjectiveType.Orangatang, "Gaze in the upward direction, I dare you.", "AAAHH he's been up there the whole time?!"),
-        new(ObjectiveType.MovieCamera, "There should be a movie camera around here some where... let's make a movie!", "JUMP SCARE!"),
-        new(ObjectiveType.Spring, "Wonder if you could bounce higher with spring attached... let's find out."),
+        new(ObjectiveType.Fore, "Swing ya club!", "FORE!"),
+        new(ObjectiveType.MaxSwing, "FULL POWAH SWING", "I believe I can fly!"),
+        new(ObjectiveType.Bowling, "Get a Stee-rike!", "I'm the Kingpin, nbd"),
+        new(ObjectiveType.StickyPizza, "Pizza time!", "Mm, smacks of pepperoni, oregano, and a touch of sentient urethane."),
+        new(ObjectiveType.PressButton, "Seekest Thou Yon Magical Button of Ywondere that probably* won't hurt you", "Huzzah!"),
+        new(ObjectiveType.ClimbMountain, "Summit the peak", "Kinna pequeño, peak."),
+        new(ObjectiveType.Dominoes, "CH-CH-CHAAAAIN REACTION!", "Bahm, bahm, bahm. Another one bites the dust."),
+        new(ObjectiveType.Donut, "Where do Munchkins come from?", "GYATT I love that sound."),
+        new(ObjectiveType.ObstacleCourse, "Towertop Trapese Trophy", "PARKOUR"),
+        new(ObjectiveType.FireHydrant, "Become the Metropolitan Water Authority fire hydrant tester", "They work just fine.", 7),
+        new(ObjectiveType.RightClickToBrake, "Cool it there, hotshot. Right-click to slow ya moves!", "Shawty got slow, slow, slow"),
+        new(ObjectiveType.HitCar, "Do Golf Balls Dream of Electric SUVs?", "THE FUZZ"),
+        new(ObjectiveType.EnterHole, "THIS IS MY HOLE. IT WAS MADE FOR ME.", "Ohp, maybe not."),
+        new(ObjectiveType.PumpkinForest, "We're off to see the wizard, the wonderful wizard of the pumpkin forest", "Ah, I've been expecting me. You meet again."),
+        new(ObjectiveType.DumpsterFire, "Remember kids, Always Set Dumpsters On Fire", "fudge, forgot my marshmallows"),
+        new(ObjectiveType.Orangatang, "Find the benevolent overlord", "he prolly eats like so many mangoes"),
+        new(ObjectiveType.MovieCamera, "Lights, Camera...!", "AACK"),
+        new(ObjectiveType.VR, "Ride the ~waave~ of the future", "I can see two of my houses from here!"),
+        new(ObjectiveType.Spring, "Spring will sprung", "it rides up a little"),
+        new(ObjectiveType.Slowmo, "Goin slow", "mo"),
     };
-
-    public Objective currentObjective;
+    
+    public Objective currentObjective { get; private set; }
     private TMPro.TextMeshProUGUI textComponent;
     private Transform completionMarker;
+    private AudioManager audioManager;
 
     public UnityEvent<ObjectiveType> onObjectiveCompleted = new();
 
     void Start()
     {
+        audioManager = AudioManager.Instance();
         currentObjective = GetNextObjective();
         textComponent = GetComponent<TMPro.TextMeshProUGUI>();
         completionMarker = transform.Find("CompletionMark");
@@ -68,6 +73,7 @@ public class ObjectiveController : MonoBehaviour
             var objective = GetObjective(ot);
             SetText(objective);
             SetCompletionText(objective.CompletionPlayerText);
+            audioManager.PlayAudioClip("objective completed");
             
             if (!completionMarker.gameObject.activeSelf)
             {
@@ -134,6 +140,7 @@ public class ObjectiveController : MonoBehaviour
         else
         {
             newText = "You have completed all the objectives. Well done!";
+            audioManager.PlayAudioClip("objective - all completed");
         }
 
         if (textComponent != null)
@@ -174,9 +181,14 @@ public class Objective
         {
             Complete();
         }
-        else if (ObjectiveController.Instance().currentObjective == this)
+        else
         {
-            ObjectiveController.Instance().SetText(this);
+            // Update the text when the quantity of the current objective is updated
+            var controller = ObjectiveController.Instance();
+            if (controller.currentObjective == this)
+            {
+                controller.SetText(this);
+            }
         }
     }
 

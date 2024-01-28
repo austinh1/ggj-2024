@@ -42,9 +42,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5379498856686686755}
     m_Modifications:
+    - target: {fileID: 1277020368494804054, guid: 5077804f82fb3b946b19c5cb666b483d, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 13400000, guid: 2d1ccb4d3b8a3b04cb74fdcc3c846a89, type: 2}
     - target: {fileID: 8139469316004404502, guid: 5077804f82fb3b946b19c5cb666b483d, type: 3}
       propertyPath: m_Name
       value: SM_Veh_Car_Police_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 8139469316004404502, guid: 5077804f82fb3b946b19c5cb666b483d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8139469316004649336, guid: 5077804f82fb3b946b19c5cb666b483d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -113,9 +121,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5379498856686686755}
     m_Modifications:
+    - target: {fileID: 1277020368494804054, guid: 5077804f82fb3b946b19c5cb666b483d, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 13400000, guid: 2d1ccb4d3b8a3b04cb74fdcc3c846a89, type: 2}
     - target: {fileID: 8139469316004404502, guid: 5077804f82fb3b946b19c5cb666b483d, type: 3}
       propertyPath: m_Name
       value: SM_Veh_Car_Police_01 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8139469316004404502, guid: 5077804f82fb3b946b19c5cb666b483d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8139469316004649336, guid: 5077804f82fb3b946b19c5cb666b483d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -228,6 +244,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3406569883035956538, guid: d224691f138782e47a1eda1a9de12b11, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 13400000, guid: 2d1ccb4d3b8a3b04cb74fdcc3c846a89, type: 2}
     - target: {fileID: 3667736475348024058, guid: d224691f138782e47a1eda1a9de12b11, type: 3}
       propertyPath: policeCars.Array.size
       value: 2
