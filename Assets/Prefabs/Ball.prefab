@@ -156,6 +156,9 @@ MonoBehaviour:
   swingRate: 0.04
   groundRaycastDistance: 1.5
   slowmoDuration: 10
+  resetHoldDuration: 5
+  explosionPrefab: {fileID: 0}
+  meshRenderer: {fileID: 2829638387660409640}
   prepSwing: 0
   swingStrength: 0
   Spring: {fileID: 3890751064435305131}

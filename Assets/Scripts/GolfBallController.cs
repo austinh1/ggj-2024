@@ -12,6 +12,9 @@ public class GolfBallController : MonoBehaviour
     public float swingRate = 0.01f;
     public float groundRaycastDistance = 1f;
     public float slowmoDuration = 10f;
+    public float resetHoldDuration = 10f;
+    public GameObject explosionPrefab;
+    public MeshRenderer meshRenderer;
 
     [HideInInspector]
     public bool prepSwing = false;
@@ -34,7 +37,10 @@ public class GolfBallController : MonoBehaviour
     private float stuckTimer;
     private float stuckWaitTime = 3f;
     private Vector3 lastPos;
-    
+
+    private float rightClickHoldTime;
+    private Vector3 startPosition;
+
     public CameraController camController;
 
     void Start()
@@ -42,12 +48,17 @@ public class GolfBallController : MonoBehaviour
         UI = GameObject.FindWithTag("UI");
         lerpToScale = Vector3.one;
         springCollider = GetComponent<CapsuleCollider>();
-        
-        lastPos = transform.position;
+
+        var position = transform.position;
+        lastPos = position;
+        startPosition = position;
     }
 
     void Update()
     {
+        if (!meshRenderer.enabled)
+            return;
+        
         var grounded = Physics.Raycast(transform.position, Vector3.down, groundRaycastDistance);
 
         CheckIfStuck(grounded);
@@ -98,10 +109,41 @@ public class GolfBallController : MonoBehaviour
                 objective.Increment();
             }
             body.drag = 2;
+            rightClickHoldTime = 0;
         }
         else if (Input.GetMouseButtonUp(1) || Input.GetButtonUp("Fire2"))
         {
             body.drag = 0;
+            rightClickHoldTime = 0;
+        }
+
+        if (Input.GetMouseButton(1) || Input.GetButton("Fire2"))
+        {
+            rightClickHoldTime += Time.deltaTime;
+
+            if (gameObject.activeSelf && rightClickHoldTime >= resetHoldDuration)
+            {
+                Instantiate(explosionPrefab, transform.position, Quaternion.identity);
+
+                rightClickHoldTime = 0;
+                meshRenderer.enabled = false;
+                body.velocity = Vector3.zero;
+                body.useGravity = false;
+                isBige = false;
+                lerpToScale = Vector3.one;
+                transform.localScale = Vector3.one;
+                Time.timeScale = 1f;
+                body.drag = 0f;
+
+                foreach (var hat in GetComponent<HatWearer>().hats)
+                {
+                    Destroy(hat);
+                }
+                
+                Spring.SetActive(false);
+                springCollider.enabled = false;
+                StartCoroutine(ResetAfterExplosionWithDelay(1f));
+            }
         }
 
         if (Time.time - slowmoStartTime >= slowmoDuration && Time.timeScale < 1f)
@@ -110,6 +152,15 @@ public class GolfBallController : MonoBehaviour
         }
         
         lastPos = transform.position;
+    }
+
+    private IEnumerator ResetAfterExplosionWithDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+
+        meshRenderer.enabled = true;
+        body.useGravity = true;
+        transform.position = startPosition;
     }
 
     private void FixedUpdate()
