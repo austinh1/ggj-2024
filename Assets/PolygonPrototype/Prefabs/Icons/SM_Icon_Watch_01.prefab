@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3401310048417428633}
   m_Layer: 0
   m_Name: SM_Icon_Watch_01
-  m_TagString: Untagged
+  m_TagString: Slowmo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

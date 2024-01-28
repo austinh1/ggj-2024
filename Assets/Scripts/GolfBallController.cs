@@ -15,6 +15,8 @@ public class GolfBallController : MonoBehaviour
     public float resetHoldDuration = 10f;
     public GameObject explosionPrefab;
     public MeshRenderer meshRenderer;
+    public Camera cameraLeft;
+    public Camera cameraRight;
 
     [HideInInspector]
     public bool prepSwing = false;
@@ -140,6 +142,8 @@ public class GolfBallController : MonoBehaviour
                 transform.localScale = Vector3.one;
                 Time.timeScale = 1f;
                 body.drag = 0f;
+                cameraLeft.rect = new Rect(0, 0, 1f, 1);
+                cameraRight.gameObject.SetActive(false);
 
                 foreach (var hat in GetComponent<HatWearer>().hats)
                 {
@@ -287,6 +291,7 @@ public class GolfBallController : MonoBehaviour
                 Destroy(other.gameObject);
                 slowmoStartTime = Time.time;
                 Time.timeScale = .5f;
+                objectiveController.GetObjective(ObjectiveType.Slowmo).Increment();
                 break;
             case "VRHeadset":
                 camController.IsThisVR();
