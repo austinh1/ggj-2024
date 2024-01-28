@@ -1,6 +1,4 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
@@ -29,7 +27,7 @@ public class SpeechBubble : MonoBehaviour
         StopAllCoroutines();
         
         text.text = t;
-        StartCoroutine(ClearTextAfterDelay(3f));
+        StartCoroutine(ClearTextAfterDelay(5f));
     }
 
     private IEnumerator ClearTextAfterDelay(float delay)
