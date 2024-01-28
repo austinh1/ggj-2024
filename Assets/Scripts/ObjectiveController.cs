@@ -26,7 +26,8 @@ public enum ObjectiveType
     MovieCamera,
     VR,
     Spring,
-    Slowmo
+    Slowmo,
+    Reset
 }
 
 public class ObjectiveController : MonoBehaviour
@@ -35,24 +36,25 @@ public class ObjectiveController : MonoBehaviour
     {
         new(ObjectiveType.Fore, "Swing ya club!", "FORE!"),
         new(ObjectiveType.MaxSwing, "FULL POWAH SWING", "I believe I can fly!"),
+        new(ObjectiveType.RightClickToBrake, "Cool it there, hotshot. Right-click to slow ya moves!", "Shawty got slow, slow, slow"),
+        new(ObjectiveType.Reset, "Hold the brake button to...", "BOOM! (I've been reset to my normal state!)"),
         new(ObjectiveType.Bowling, "Get a Stee-rike!", "I'm the Kingpin, nbd"),
         new(ObjectiveType.StickyPizza, "Pizza time!", "Mm, smacks of pepperoni, oregano, and a touch of sentient urethane."),
+        new(ObjectiveType.Spring, "Spring will sprung", "it rides up a little"),
         new(ObjectiveType.PressButton, "Seekest Thou Yon Magical Button of Ywondere that probably* won't hurt you", "Huzzah!"),
         new(ObjectiveType.ClimbMountain, "Summit the peak", "Kinna pequeño, peak."),
+        new(ObjectiveType.MovieCamera, "Lights, Camera...!", "AACK"),
         new(ObjectiveType.Dominoes, "CH-CH-CHAAAAIN REACTION!", "Bahm, bahm, bahm. Another one bites the dust."),
-        new(ObjectiveType.Donut, "Where do Munchkins come from?", "GYATT I love that sound."),
+        new(ObjectiveType.Donut, "Where do Donut holes come from?", "GYATT I love that sound."),
+        new(ObjectiveType.Slowmo, "Have you the time?", "It's tooth hurty."),
         new(ObjectiveType.ObstacleCourse, "Towertop Trapese Trophy", "PARKOUR"),
         new(ObjectiveType.FireHydrant, "Become the Metropolitan Water Authority fire hydrant tester", "They work just fine.", 7),
-        new(ObjectiveType.RightClickToBrake, "Cool it there, hotshot. Right-click to slow ya moves!", "Shawty got slow, slow, slow"),
         new(ObjectiveType.HitCar, "Do Golf Balls Dream of Electric SUVs?", "THE FUZZ"),
         new(ObjectiveType.EnterHole, "THIS IS MY HOLE. IT WAS MADE FOR ME.", "Ohp, maybe not."),
         new(ObjectiveType.PumpkinForest, "We're off to see the wizard, the wonderful wizard of the pumpkin forest", "Ah, I've been expecting me. You meet again."),
         new(ObjectiveType.DumpsterFire, "Remember kids, Always Set Dumpsters On Fire", "fudge, forgot my marshmallows"),
         new(ObjectiveType.Orangatang, "Find the benevolent overlord", "he prolly eats like so many mangoes"),
-        new(ObjectiveType.MovieCamera, "Lights, Camera...!", "AACK"),
         new(ObjectiveType.VR, "Ride the ~waave~ of the future", "I can see two of my houses from here!"),
-        new(ObjectiveType.Spring, "Spring will sprung", "it rides up a little"),
-        new(ObjectiveType.Slowmo, "Goin slow", "mo"),
     };
     
     public Objective currentObjective { get; private set; }

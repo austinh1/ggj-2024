@@ -30,7 +30,7 @@ public class AudioManager : MonoBehaviour
         }
         else
         {
-            Debug.LogError(string.Format("No audio clip in AudioManager with the name: '{0}'", clipName));
+            Debug.LogWarning(string.Format("No audio clip in AudioManager with the name: '{0}'", clipName));
         }
     }
 }

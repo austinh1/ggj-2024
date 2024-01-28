@@ -202,6 +202,7 @@ public class GolfBallController : MonoBehaviour
         meshRenderer.enabled = true;
         body.useGravity = true;
         transform.position = startPosition;
+        objectiveController.GetObjective(ObjectiveType.Reset).Increment();
     }
 
     private void FixedUpdate()
