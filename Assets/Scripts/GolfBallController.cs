@@ -29,6 +29,8 @@ public class GolfBallController : MonoBehaviour
     private Collider springCollider;
     private float slowmoStartTime;
 
+    public CameraController camController;
+
     void Start()
     {
         UI = GameObject.FindWithTag("UI");
@@ -167,13 +169,17 @@ public class GolfBallController : MonoBehaviour
             case "Spring":
                 Spring.SetActive(true);
                 springCollider.enabled = true;
-                other.gameObject.SetActive(false);
+                Destroy(other.gameObject);
                 break;
             case "Slowmo":
                 Destroy(other.gameObject);
                 slowmoStartTime = Time.time;
                 Time.timeScale = .5f;
                 break;
+            case "VRHeadset":
+                camController.IsThisVR();
+                break;
+
         }
     }
 

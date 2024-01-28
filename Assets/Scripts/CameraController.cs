@@ -7,7 +7,10 @@ public class CameraController : MonoBehaviour
     public float lerpToAnchorSpeed = .9f;
     public float rotateSensitivity = 1f;
     public float gamepadRotateSensitivity = 0.1f;
-    
+
+    public Camera cameraLeft;
+    public Camera cameraRight;
+
     void Start()
     {
         Cursor.visible = false;
@@ -38,5 +41,10 @@ public class CameraController : MonoBehaviour
     {
         transform.position = Vector3.Lerp(transform.position, ball.transform.position, lerpToAnchorSpeed * Time.fixedDeltaTime);
         // anchor.transform.position = transform.position;
+    }
+
+    public void IsThisVR() {
+        cameraLeft.rect = new Rect(0, 0, 0.5f, 1);
+        cameraRight.gameObject.SetActive(true);       
     }
 }
