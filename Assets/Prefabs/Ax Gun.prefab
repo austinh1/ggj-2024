@@ -9,10 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5047959769659306366}
-  - component: {fileID: 4204927083660198268}
   - component: {fileID: 5691777580230988717}
+  - component: {fileID: 6403206296181944317}
   m_Layer: 0
-  m_Name: Parent of Ax
+  m_Name: Ax Gun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -34,21 +34,6 @@ Transform:
   - {fileID: 8230734741899109418}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4204927083660198268
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1615798624567104283}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 29f8e9df356220641beacf662485c69f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  heightMultiplier: 0
-  forwardMultiplier: 0.25
-  sideOffset: 0.65
 --- !u!65 &5691777580230988717
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -70,6 +55,21 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.1261737, y: 0.5324247, z: 0.8416209}
   m_Center: {x: -0.009166971, y: 0.0013371855, z: 0.0020668507}
+--- !u!114 &6403206296181944317
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1615798624567104283}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62fd9cc2cb0029c4393d88af1698991a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  heightMultiplier: 0
+  forwardMultiplier: 0.25
+  sideOffset: 0.65
 --- !u!1001 &8230328002299122892
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -4,7 +4,7 @@ using UnityEngine;
 public class Hat : MonoBehaviour
 {
     private Transform player;
-    private bool equipped = false;
+    protected bool equipped = false;
     private Rigidbody playerBody;
     public float heightMultiplier = 0.35f;
     public float forwardMultiplier = 0.25f;
