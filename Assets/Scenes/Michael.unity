@@ -1208,6 +1208,63 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1652257844}
   m_SourcePrefab: {fileID: 100100000, guid: 6079b76e8979753438417ff7ba959359, type: 3}
+--- !u!1001 &1985049168
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 8593725439482825063, guid: 21be4e142b883994bb5a9f599d2907a4, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -4.0951986
+      objectReference: {fileID: 0}
+    - target: {fileID: 8593725439482825063, guid: 21be4e142b883994bb5a9f599d2907a4, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.00000023841858
+      objectReference: {fileID: 0}
+    - target: {fileID: 8593725439482825063, guid: 21be4e142b883994bb5a9f599d2907a4, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 3.29
+      objectReference: {fileID: 0}
+    - target: {fileID: 8593725439482825063, guid: 21be4e142b883994bb5a9f599d2907a4, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8593725439482825063, guid: 21be4e142b883994bb5a9f599d2907a4, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8593725439482825063, guid: 21be4e142b883994bb5a9f599d2907a4, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8593725439482825063, guid: 21be4e142b883994bb5a9f599d2907a4, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8593725439482825063, guid: 21be4e142b883994bb5a9f599d2907a4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8593725439482825063, guid: 21be4e142b883994bb5a9f599d2907a4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8593725439482825063, guid: 21be4e142b883994bb5a9f599d2907a4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8595504301376342821, guid: 21be4e142b883994bb5a9f599d2907a4, type: 3}
+      propertyPath: m_Name
+      value: TinyMountain
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 21be4e142b883994bb5a9f599d2907a4, type: 3}
 --- !u!4 &2046705392 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2787493844987679827, guid: 2846ac250d1be4f4889e3a93adf6376e, type: 3}
@@ -1397,3 +1454,4 @@ SceneRoots:
   - {fileID: 1208682331}
   - {fileID: 8570008347510179445}
   - {fileID: 667214506}
+  - {fileID: 1985049168}

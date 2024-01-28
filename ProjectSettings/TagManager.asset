@@ -10,6 +10,9 @@ TagManager:
   - Food
   - Sticky
   - Slowmo
+  - MovieCamera
+  - Spring
+  - VRHeadset
   layers:
   - Default
   - TransparentFX

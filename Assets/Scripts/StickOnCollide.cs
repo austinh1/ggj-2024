@@ -15,9 +15,11 @@ public class StickOnCollide : MonoBehaviour
     {
         if (rigid != null && !rigid.isKinematic)
         {
-            transform.SetParent(other.transform, true);
-            rigid.isKinematic = true;
+            rigid.velocity = Vector3.zero;
             rigid.useGravity = false;
+            rigid.isKinematic = true;
+            rigid.collisionDetectionMode = CollisionDetectionMode.Discrete;
+            transform.SetParent(other.transform, true);
 
             if (other.gameObject.CompareTag("Player"))
             {

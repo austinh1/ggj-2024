@@ -32,6 +32,7 @@ public class GolfBallController : MonoBehaviour
 
     [SerializeField] bool stuck = false;
     private float stuckWaitTime = 5f;
+    public CameraController camController;
 
     void Start()
     {
@@ -69,6 +70,11 @@ public class GolfBallController : MonoBehaviour
                 body.AddForce((anchor.forward + new Vector3(0, upwardVelocity * swingStrength, 0)) * (forwardVelocity * swingStrength), ForceMode.Impulse);
                 body.AddTorque(anchor.right * 10f, ForceMode.Impulse);
                 stuck = false;
+
+                if (swingStrength == 1f)
+                {
+                    ObjectiveController.Instance().GetObjective(ObjectiveType.MaxSwing).Increment();
+                }
             }
             else
             {
@@ -184,13 +190,17 @@ public class GolfBallController : MonoBehaviour
             case "Spring":
                 Spring.SetActive(true);
                 springCollider.enabled = true;
-                other.gameObject.SetActive(false);
+                Destroy(other.gameObject);
                 break;
             case "Slowmo":
                 Destroy(other.gameObject);
                 slowmoStartTime = Time.time;
                 Time.timeScale = .5f;
                 break;
+            case "VRHeadset":
+                camController.IsThisVR();
+                break;
+
         }
     }
 
