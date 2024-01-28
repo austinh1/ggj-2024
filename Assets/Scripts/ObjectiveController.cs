@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Linq;
 using UnityEngine;
 
@@ -13,36 +14,50 @@ public class ObjectiveController : MonoBehaviour
     private int currentIndex = 0;
     private Objective currentObjective;
     private TMPro.TextMeshProUGUI textComponent;
+    private Transform completionMarker;
 
     void Start()
     {
         currentObjective = objectives[currentIndex];
         textComponent = GetComponent<TMPro.TextMeshProUGUI>();
+        completionMarker = transform.Find("CompletionMark");
 
         SetText();
     }
 
     void FixedUpdate()
     {
-        if (currentObjective.IsComplete)
+        if (currentObjective.IsComplete && !completionMarker.gameObject.activeSelf)
         {
-            currentIndex++;
-            if (currentIndex < objectives.Length)
-            {
-                currentObjective = objectives[currentIndex];
-            }
-            else
-            {
-                currentObjective = null;
-            }
+            // Show that the objective was complete and set a timer for when the next objective will display
+            completionMarker.gameObject.SetActive(true);
 
-            SetText();
+            StartCoroutine(DelayNextObjective(5));
         }
     }
 
     public Objective GetObjective(ObjectiveType type)
     {
         return objectives.Where(search => search.Type == type).First();
+    }
+
+    private IEnumerator DelayNextObjective(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+
+        completionMarker.gameObject.SetActive(false);
+
+        currentIndex++;
+        if (currentIndex < objectives.Length)
+        {
+            currentObjective = objectives[currentIndex];
+        }
+        else
+        {
+            currentObjective = null;
+        }
+
+        SetText();
     }
 
     private void SetText()
