@@ -36,6 +36,20 @@ public class ObjectiveController : MonoBehaviour
         }
     }
 
+    public static ObjectiveController Instance()
+    {
+        var controllers = GameObject.FindGameObjectsWithTag("GameController");
+        for (var i = 0; i < controllers.Length; i++)
+        {
+            var objectiveScript = controllers[i].GetComponent<ObjectiveController>();
+            if (objectiveScript != null)
+            {
+                return objectiveScript;
+            }
+        }
+        return null;
+    }
+
     public Objective GetObjective(ObjectiveType type)
     {
         return objectives.Where(search => search.Type == type).First();
