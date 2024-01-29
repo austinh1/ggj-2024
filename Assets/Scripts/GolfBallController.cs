@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GolfBallController : MonoBehaviour
 {
@@ -68,6 +69,11 @@ public class GolfBallController : MonoBehaviour
     {
         if (!meshRenderer.enabled)
             return;
+
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            SceneManager.LoadScene(0);
+        }
         
         var grounded = Physics.Raycast(transform.position, Vector3.down, groundRaycastDistance);
         if (grounded)
