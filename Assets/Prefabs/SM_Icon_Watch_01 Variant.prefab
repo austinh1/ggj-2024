@@ -12,10 +12,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Icon_Watch_01 Variant
       objectReference: {fileID: 0}
-    - target: {fileID: 1850168088711542, guid: d3c90cdc1bc776d4d89c73fca7e183dd, type: 3}
-      propertyPath: m_TagString
-      value: Slowmo
-      objectReference: {fileID: 0}
     - target: {fileID: 4568238537610586, guid: d3c90cdc1bc776d4d89c73fca7e183dd, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.17
